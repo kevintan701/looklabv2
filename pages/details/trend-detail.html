@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookLab - Trend Detail: Sustainable Denim</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/tailwind.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2d3748',
+                        secondary: '#4a5568',
+                        accent: '#f56565',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'SF Pro Text', 'sans-serif'],
+                        heading: ['Montserrat', 'SF Pro Display', 'sans-serif'],
+                        editorial: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-fashion-cream bg-fashion-pattern">
+    <div class="flex h-screen">
+        <!-- Left Sidebar Navigation -->
+        <div class="w-56 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <a href="../../index.html" class="flex items-center px-6 py-3 border-b border-gray-200">
+                <span class="text-xl font-semibold"><span class="text-accent">Look</span>Lab</span>
+            </a>
+            
+            <!-- User Profile Short -->
+            <div class="flex items-center px-6 py-3 border-b border-gray-200">
+                <img src="../../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                <div class="ml-3">
+                    <div class="text-sm font-medium">Alex Morgan</div>
+                    <div class="text-xs text-gray-500">Boutique Manager</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex-1 py-4">
+                <a href="../../index.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-home w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                
+                <!-- Discover with submenu -->
+                <div>
+                    <button class="w-full flex items-center justify-between px-6 py-2 text-accent hover:bg-gray-100 focus:outline-none cursor-pointer">
+                        <div class="flex items-center">
+                            <i class="fas fa-compass w-5"></i>
+                            <span class="ml-3">Discover</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs transform rotate-180"></i>
+                    </button>
+                    <div class="pl-14">
+                        <a href="../designers.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Designers
+                        </a>
+                        <a href="../products.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Products
+                        </a>
+                        <a href="../trending.html" class="block py-2 text-sm text-accent font-medium">
+                            Trending
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="../inventory.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-boxes-stacked w-5"></i>
+                    <span class="ml-3">Inventory</span>
+                </a>
+                
+                <a href="../messages.html" class="flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-comments w-5"></i>
+                        <span class="ml-3">Messages</span>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                </a>
+                
+                <a href="../aiassistant.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-robot w-5"></i>
+                    <span class="ml-3">AI Assistant</span>
+                </a>
+                
+                <a href="../profile.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-user w-5"></i>
+                    <span class="ml-3">Profile</span>
+                </a>
+                
+                <a href="../settings.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100 mt-auto">
+                    <i class="fas fa-cog w-5"></i>
+                    <span class="ml-3">Settings</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <!-- Search Bar -->
+                    <div class="relative w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" placeholder="Search for designers, products, or trends..." 
+                               class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                    </div>
+                    
+                    <!-- Right Side Actions -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-900 relative" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="flex items-center">
+                            <img src="../../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                            <span class="ml-2">Alex Morgan</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto p-6 discover-page">
+                <div class="max-w-7xl mx-auto">
+                    <!-- Breadcrumb Navigation -->
+                    <nav class="text-sm mb-6 animate-fade-in">
+                        <ol class="list-none p-0 flex items-center space-x-2">
+                            <li class="flex items-center">
+                                <a href="../trending.html" class="text-gray-500 hover:text-accent">Trending</a>
+                                <span class="mx-2 text-gray-400">/</span>
+                            </li>
+                            <li class="text-accent font-medium">Sustainable Denim</li>
+                        </ol>
+                    </nav>
+                    
+                    <!-- Trend Hero Section -->
+                    <div class="mb-12 animate-fade-in">
+                        <div class="relative border-editorial overflow-hidden h-96">
+                            <img src="../../assets/images/trends/sustainable-denim-hero.jpg" alt="Sustainable Denim" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                <div class="p-8 text-white">
+                                    <div class="flex items-center mb-2">
+                                        <span class="mr-2 trend-tag">+28%</span>
+                                        <span class="text-sm letter-spacing-wide uppercase">Growth in Past Year</span>
+                                    </div>
+                                    <h1 class="font-editorial text-4xl mb-3">Sustainable Denim</h1>
+                                    <p class="max-w-2xl mb-4">Revolutionizing an industry staple through innovative eco-friendly processes, natural dyes, and water conservation technologies.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trend Info Tabs -->
+                    <div class="mb-10 animate-fade-in">
+                        <div class="border-b border-editorial">
+                            <nav class="flex -mb-px">
+                                <button class="px-4 py-3 border-b-2 border-accent text-accent font-medium">Overview</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Market Data</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Innovations</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Products</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Designers</button>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <!-- Main Content Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Main Trend Content - Takes 2/3 of the space -->
+                        <div class="lg:col-span-2">
+                            <!-- Key Takeaways Section -->
+                            <div class="bg-white border-editorial p-6 mb-8 animate-fade-in-up">
+                                <h2 class="font-editorial text-2xl mb-4">Key Takeaways</h2>
+                                
+                                <ul class="mb-4 space-y-3">
+                                    <li class="flex items-start">
+                                        <div class="text-accent mt-0.5 mr-2">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <p>Sustainable denim has seen a <strong>28% growth</strong> in market adoption over the past year, outperforming all other fabric categories.</p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="text-accent mt-0.5 mr-2">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <p>Water conservation technologies have reduced usage by up to <strong>95%</strong> compared to traditional denim production methods.</p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="text-accent mt-0.5 mr-2">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <p><strong>Natural dyes</strong> from plants and minerals are replacing chemical alternatives, eliminating toxic runoff.</p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="text-accent mt-0.5 mr-2">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <p>Consumer willingness to pay a premium for sustainable denim has increased by <strong>34%</strong> since 2021.</p>
+                                    </li>
+                                </ul>
+                                
+                                <p class="text-sm text-gray-500 italic">Last updated: June 2023</p>
+                            </div>
+                            
+                            <!-- Trend Overview Section -->
+                            <div class="bg-white border-editorial p-6 mb-8 animate-fade-in-up">
+                                <h2 class="font-editorial text-2xl mb-4">Trend Overview</h2>
+                                
+                                <p class="mb-4 text-gray-700">
+                                    Sustainable denim represents a significant shift in how one of fashion's most resource-intensive fabrics is produced and consumed. Traditional denim production is notoriously water-intensive and relies heavily on chemical processes that generate significant pollution. The sustainable denim movement addresses these environmental concerns through multiple innovative approaches.
+                                </p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                    <div>
+                                        <img src="../../assets/images/trends/sustainable-factory.jpg" alt="Sustainable Denim Factory" class="w-full h-auto border-editorial mb-3">
+                                        <p class="text-sm text-gray-500 italic">Modern sustainable denim factory using closed-loop water systems</p>
+                                    </div>
+                                    <div>
+                                        <p class="mb-4 text-gray-700">
+                                            The shift began around 2015 with pioneering brands implementing water-saving technologies, but has accelerated dramatically in the past 24 months. This acceleration coincides with increased consumer awareness of fashion's environmental impact and regulatory pressure in key markets.
+                                        </p>
+                                        <p class="text-gray-700">
+                                            Leading the charge are independent designers like Sophie Brown, whose innovative techniques have influenced even legacy denim brands to adopt more sustainable practices. These approaches include:
+                                        </p>
+                                        <ul class="list-disc pl-5 text-gray-700 mt-2 space-y-1">
+                                            <li>Laser distressing replacing chemical processes</li>
+                                            <li>Ozone treatments reducing water usage</li>
+                                            <li>Organic and recycled cotton blends</li>
+                                            <li>Closed-loop water recycling systems</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="designer-quote my-6">
+                                    We're redefining what quality means in denim. It's no longer just about durability and fit, but about environmental responsibility at every stage of production.
+                                    <div class="mt-2 text-sm">— Sophie Brown, Eco Denim Specialist</div>
+                                </div>
+                                
+                                <p class="text-gray-700">
+                                    Major retailers report that sustainable denim now accounts for approximately 22% of their total denim sales, up from just 7% in 2020. This growth trajectory is expected to continue, with projections suggesting sustainable options could represent the majority of denim sales by 2026.
+                                </p>
+                            </div>
+                            
+                            <!-- Innovation Spotlight -->
+                            <div class="bg-white border-editorial p-6 mb-8 animate-fade-in-up">
+                                <h2 class="font-editorial text-2xl mb-4">Innovation Spotlight</h2>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                                    <div class="border-editorial p-4 text-center">
+                                        <div class="h-40 overflow-hidden mb-3">
+                                            <img src="../../assets/images/trends/laser-technology.jpg" alt="Laser Technology" class="w-full h-full object-cover">
+                                        </div>
+                                        <h3 class="font-medium mb-2">Laser Technology</h3>
+                                        <p class="text-sm text-gray-600">Precision lasers create authentic-looking distressing without water or chemicals.</p>
+                                    </div>
+                                    
+                                    <div class="border-editorial p-4 text-center">
+                                        <div class="h-40 overflow-hidden mb-3">
+                                            <img src="../../assets/images/trends/natural-dyes.jpg" alt="Natural Dyes" class="w-full h-full object-cover">
+                                        </div>
+                                        <h3 class="font-medium mb-2">Natural Indigo Dyes</h3>
+                                        <p class="text-sm text-gray-600">Plant-based dyes eliminate toxic runoff while producing rich, unique colors.</p>
+                                    </div>
+                                    
+                                    <div class="border-editorial p-4 text-center">
+                                        <div class="h-40 overflow-hidden mb-3">
+                                            <img src="../../assets/images/trends/recycled-denim.jpg" alt="Recycled Content" class="w-full h-full object-cover">
+                                        </div>
+                                        <h3 class="font-medium mb-2">Recycled Content</h3>
+                                        <p class="text-sm text-gray-600">Post-consumer recycled denim reduces waste and creates circular production cycles.</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="text-gray-700">
+                                    These innovations are not just improving environmental metrics—they're also creating new aesthetic possibilities. Sophie Brown's collection demonstrates how sustainable processes can yield unique textures and finishes impossible to achieve with conventional methods, challenging the notion that sustainability requires aesthetic compromise.
+                                </p>
+                            </div>
+                            
+                            <!-- Related Products Section -->
+                            <div class="mb-12 animate-fade-in-up">
+                                <div class="section-header mb-6">
+                                    <h2 class="font-editorial text-2xl">Featured Products</h2>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <!-- Product Card 1 -->
+                                    <div class="fashion-card product-card group">
+                                        <div class="flex flex-col md:flex-row">
+                                            <div class="md:w-1/3">
+                                                <div class="img-zoom-container h-full">
+                                                    <img src="../../assets/images/products/jeans.jpg" alt="Sustainable Denim Jeans" class="w-full h-full object-cover img-zoom">
+                                                </div>
+                                            </div>
+                                            <div class="p-6 md:w-2/3">
+                                                <p class="text-xs letter-spacing-wide uppercase text-gray-500 mb-1">Sophie Brown</p>
+                                                <h3 class="font-editorial text-lg mb-2">Sustainable Denim Jeans</h3>
+                                                <p class="text-sm text-gray-600 mb-3">High-waisted wide-leg jeans made with organic cotton and natural indigo dye.</p>
+                                                <div class="flex justify-between mt-3">
+                                                    <span class="text-xs text-gray-500">MSRP: $159.00</span>
+                                                    <a href="../product-detail.html" class="text-accent text-sm hover:underline">View Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Product Card 2 -->
+                                    <div class="fashion-card product-card group">
+                                        <div class="flex flex-col md:flex-row">
+                                            <div class="md:w-1/3">
+                                                <div class="img-zoom-container h-full">
+                                                    <img src="../../assets/images/products/denim-jacket.jpg" alt="Upcycled Denim Jacket" class="w-full h-full object-cover img-zoom">
+                                                </div>
+                                            </div>
+                                            <div class="p-6 md:w-2/3">
+                                                <p class="text-xs letter-spacing-wide uppercase text-gray-500 mb-1">Marcus Chen</p>
+                                                <h3 class="font-editorial text-lg mb-2">Upcycled Denim Jacket</h3>
+                                                <p class="text-sm text-gray-600 mb-3">Reconstructed from vintage denim with laser-finished details and recycled hardware.</p>
+                                                <div class="flex justify-between mt-3">
+                                                    <span class="text-xs text-gray-500">MSRP: $225.00</span>
+                                                    <a href="product-detail.html" class="text-accent text-sm hover:underline">View Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sidebar - Takes 1/3 of the space -->
+                        <div class="lg:col-span-1">
+                            <!-- Market Stats -->
+                            <div class="bg-white border-editorial p-6 mb-8 animate-fade-in-up">
+                                <h3 class="font-editorial text-xl mb-4">Market Statistics</h3>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span>Market Growth</span>
+                                            <span class="text-xs font-medium text-green-500">+28%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-100 h-2 rounded-full">
+                                            <div class="bg-accent h-2 rounded-full" style="width: 28%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span>Consumer Interest</span>
+                                            <span class="text-xs font-medium text-green-500">+43%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-100 h-2 rounded-full">
+                                            <div class="bg-accent h-2 rounded-full" style="width: 43%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span>Wholesale Orders</span>
+                                            <span class="text-xs font-medium text-green-500">+19%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-100 h-2 rounded-full">
+                                            <div class="bg-accent h-2 rounded-full" style="width: 19%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="font-medium text-sm mt-6 mb-2">Regional Adoption</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="text-sm">Europe</p>
+                                        </div>
+                                        <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center border border-green-100">
+                                            <p class="font-medium text-green-600">36%</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="text-sm">North America</p>
+                                        </div>
+                                        <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center border border-blue-100">
+                                            <p class="font-medium text-blue-600">29%</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="text-sm">Asia Pacific</p>
+                                        </div>
+                                        <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center border border-purple-100">
+                                            <p class="font-medium text-purple-600">22%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Featured Designer -->
+                            <div class="bg-white border-editorial p-6 mb-8 animate-fade-in-up">
+                                <h3 class="font-editorial text-xl mb-4">Trend Pioneer</h3>
+                                
+                                <div class="text-center mb-4">
+                                    <img src="../../assets/images/designers/designer-3.jpg" alt="Sophie Brown" class="w-32 h-32 object-cover rounded-full mx-auto border-editorial">
+                                    <h4 class="font-editorial text-lg mt-3">Sophie Brown</h4>
+                                    <p class="text-sm text-gray-600">Eco Denim Specialist</p>
+                                </div>
+                                
+                                <p class="text-sm text-gray-700 mb-4">
+                                    London-based designer Sophie Brown has been at the forefront of sustainable denim innovation since 2020. Her background in textile engineering and fashion design gives her a unique perspective on solving denim's environmental challenges.
+                                </p>
+                                
+                                <div class="text-center">
+                                    <a href="designer-profile.html" class="fashion-button bg-fashion-black text-white py-2 px-4">View Designer Profile</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Retail Insights -->
+                            <div class="bg-white border-editorial p-6 mb-8 animate-fade-in-up">
+                                <h3 class="font-editorial text-xl mb-4">Retail Insights</h3>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-medium mb-1">Price Point</h4>
+                                        <p class="text-sm text-gray-600 mb-2">Sustainable denim typically commands a 15-30% premium over conventional options, but this gap is narrowing as manufacturing scales.</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-medium mb-1">Consumer Demographics</h4>
+                                        <p class="text-sm text-gray-600 mb-2">While initially adopted by younger consumers (18-34), sustainable denim is now gaining traction across all age groups, particularly in urban markets.</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-medium mb-1">Sales Performance</h4>
+                                        <p class="text-sm text-gray-600 mb-2">Boutiques featuring sustainable denim prominently report 23% higher conversion rates and 16% increase in average order value.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Download Report -->
+                            <div class="bg-fashion-beige p-6 border-editorial animate-fade-in-up">
+                                <h3 class="font-editorial text-xl mb-3 text-center">Complete Trend Report</h3>
+                                <p class="text-sm text-center mb-4">Download our comprehensive 32-page report on sustainable denim with detailed market analysis and forecasts.</p>
+                                <div class="text-center">
+                                    <button class="fashion-button bg-fashion-black text-white py-2 px-6">
+                                        <i class="fas fa-download mr-2"></i> Download Report
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Trends -->
+                    <div class="mt-12 mb-12 animate-fade-in">
+                        <div class="section-header mb-6">
+                            <h2 class="font-editorial text-2xl">Related Trends</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="fashion-card hover-lift">
+                                <div class="relative overflow-hidden h-48">
+                                    <img src="../../assets/images/trends/upcycling.jpg" alt="Upcycled Fashion" class="w-full h-full object-cover img-zoom">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                                        <div>
+                                            <div class="flex items-center mb-1">
+                                                <span class="trend-tag text-xs mr-2">+24%</span>
+                                                <h3 class="text-white font-editorial text-lg">Upcycled Fashion</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-gray-600 mb-3">Transforming pre-existing materials into new fashion pieces, reducing waste and creating unique designs.</p>
+                                    <a href="#" class="text-accent text-sm hover:underline">Explore Trend</a>
+                                </div>
+                            </div>
+                            
+                            <div class="fashion-card hover-lift">
+                                <div class="relative overflow-hidden h-48">
+                                    <img src="../../assets/images/trends/plant-textiles.jpg" alt="Plant-Based Textiles" class="w-full h-full object-cover img-zoom">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                                        <div>
+                                            <div class="flex items-center mb-1">
+                                                <span class="trend-tag text-xs mr-2">+19%</span>
+                                                <h3 class="text-white font-editorial text-lg">Plant-Based Textiles</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-gray-600 mb-3">Innovative fabrics made from agricultural byproducts like pineapple leaves, orange peels, and mushrooms.</p>
+                                    <a href="#" class="text-accent text-sm hover:underline">Explore Trend</a>
+                                </div>
+                            </div>
+                            
+                            <div class="fashion-card hover-lift">
+                                <div class="relative overflow-hidden h-48">
+                                    <img src="../../assets/images/trends/zero-waste.jpg" alt="Zero Waste Pattern Cutting" class="w-full h-full object-cover img-zoom">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                                        <div>
+                                            <div class="flex items-center mb-1">
+                                                <span class="trend-tag text-xs mr-2">+16%</span>
+                                                <h3 class="text-white font-editorial text-lg">Zero Waste Cutting</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-gray-600 mb-3">Pattern cutting techniques that eliminate fabric waste during the garment production process.</p>
+                                    <a href="#" class="text-accent text-sm hover:underline">Explore Trend</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html> 

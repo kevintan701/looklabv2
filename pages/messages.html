@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookLab - Messages</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2d3748',
+                        secondary: '#4a5568',
+                        accent: '#f56565',
+                    },
+                    fontFamily: {
+                        sans: ['SF Pro Text', 'sans-serif'],
+                        heading: ['SF Pro Display', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Left Sidebar Navigation -->
+        <div class="w-56 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <a href="../index.html" class="flex items-center px-6 py-3 border-b border-gray-200">
+                <span class="text-xl font-semibold"><span class="text-accent">Look</span>Lab</span>
+            </a>
+            
+            <!-- User Profile Short -->
+            <div class="flex items-center px-6 py-3 border-b border-gray-200">
+                <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                <div class="ml-3">
+                    <div class="text-sm font-medium">Alex Morgan</div>
+                    <div class="text-xs text-gray-500">Boutique Manager</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex-1 py-4">
+                <a href="../index.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-home w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                
+                <!-- Discover with submenu -->
+                <div>
+                    <button class="w-full flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100 focus:outline-none">
+                        <div class="flex items-center">
+                            <i class="fas fa-compass w-5"></i>
+                            <span class="ml-3">Discover</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="pl-14 hidden">
+                        <a href="discover.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Designers
+                        </a>
+                        <a href="products.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Products
+                        </a>
+                        <a href="trending.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Trending
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="inventory.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-boxes-stacked w-5"></i>
+                    <span class="ml-3">Inventory</span>
+                </a>
+                
+                <a href="messages.html" class="flex items-center justify-between px-6 py-2 text-accent hover:bg-gray-100 font-medium">
+                    <div class="flex items-center">
+                        <i class="fas fa-comments w-5"></i>
+                        <span class="ml-3">Messages</span>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                </a>
+                
+                <a href="aiassistant.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-robot w-5"></i>
+                    <span class="ml-3">AI Assistant</span>
+                </a>
+                
+                <a href="profile.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-user w-5"></i>
+                    <span class="ml-3">Profile</span>
+                </a>
+                
+                <a href="settings.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100 mt-auto">
+                    <i class="fas fa-cog w-5"></i>
+                    <span class="ml-3">Settings</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <!-- Search Bar -->
+                    <div class="relative w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" placeholder="Search messages..." 
+                               class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                    </div>
+                    
+                    <!-- Right Side Actions -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-900 relative" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="flex items-center">
+                            <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                            <span class="ml-2">Alex Morgan</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Messages Interface -->
+            <div class="flex-1 flex overflow-hidden">
+                <!-- Contacts Sidebar -->
+                <div class="w-80 bg-white border-r border-gray-200 flex flex-col">
+                    <div class="p-4 border-b border-gray-200">
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                                <i class="fas fa-search text-gray-400"></i>
+                            </span>
+                            <input type="text" placeholder="Search contacts..." 
+                                   class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                        </div>
+                    </div>
+                    
+                    <!-- Message Filters -->
+                    <div class="px-4 py-2 border-b border-gray-200 flex">
+                        <button class="px-3 py-1 text-sm font-medium text-accent border-b-2 border-accent">
+                            All
+                        </button>
+                        <button class="px-3 py-1 text-sm font-medium text-gray-500 hover:text-gray-900">
+                            Designers
+                        </button>
+                        <button class="px-3 py-1 text-sm font-medium text-gray-500 hover:text-gray-900">
+                            Retailers
+                        </button>
+                        <button class="px-3 py-1 text-sm font-medium text-gray-500 hover:text-gray-900">
+                            Unread
+                        </button>
+                    </div>
+                    
+                    <!-- Contacts List -->
+                    <div class="flex-1 overflow-y-auto">
+                        <!-- Contact Item - Active -->
+                        <a href="#" class="block px-4 py-3 bg-gray-50 border-l-4 border-accent hover:bg-gray-100">
+                            <div class="flex items-start">
+                                <img src="../assets/images/designers/designer-1.jpg" alt="Emma Wilson" class="w-10 h-10 rounded-full mr-3" />
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="text-sm font-medium text-gray-900 truncate">Emma Wilson</h3>
+                                        <span class="text-xs text-gray-500">10:42 AM</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 truncate">I've just uploaded the new collection. Could you take a look and let me know your thoughts?</p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Contact Item - Unread -->
+                        <a href="#" class="block px-4 py-3 border-b border-gray-100 hover:bg-gray-50">
+                            <div class="flex items-start">
+                                <img src="../assets/images/designers/designer-2.jpg" alt="Marco Chen" class="w-10 h-10 rounded-full mr-3" />
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="text-sm font-medium text-gray-900 truncate">Marco Chen</h3>
+                                        <span class="text-xs text-gray-500">Yesterday</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="text-sm text-gray-600 truncate">Hey, are you attending the fashion expo next month?</p>
+                                        <span class="flex h-2 w-2 rounded-full bg-red-500"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Contact Item - Unread -->
+                        <a href="#" class="block px-4 py-3 border-b border-gray-100 hover:bg-gray-50">
+                            <div class="flex items-start">
+                                <img src="../assets/images/designers/designer-3.jpg" alt="Sophie Brown" class="w-10 h-10 rounded-full mr-3" />
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="text-sm font-medium text-gray-900 truncate">Sophie Brown</h3>
+                                        <span class="text-xs text-gray-500">Yesterday</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="text-sm text-gray-600 truncate">Can we schedule a call to discuss the order details?</p>
+                                        <span class="flex h-2 w-2 rounded-full bg-red-500"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- More Contact Items -->
+                        <a href="#" class="block px-4 py-3 border-b border-gray-100 hover:bg-gray-50">
+                            <div class="flex items-start">
+                                <img src="../assets/images/designers/designer-4.jpg" alt="Liam Johnson" class="w-10 h-10 rounded-full mr-3" />
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="text-sm font-medium text-gray-900 truncate">Liam Johnson</h3>
+                                        <span class="text-xs text-gray-500">Monday</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 truncate">Thank you for the feedback on my latest collection.</p>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="block px-4 py-3 border-b border-gray-100 hover:bg-gray-50">
+                            <div class="flex items-start">
+                                <img src="../assets/images/designers/designer-5.jpg" alt="Zara Thomas" class="w-10 h-10 rounded-full mr-3" />
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="text-sm font-medium text-gray-900 truncate">Zara Thomas</h3>
+                                        <span class="text-xs text-gray-500">Last week</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 truncate">The sustainable denim pieces are now ready for your review.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Chat Section -->
+                <div class="flex-1 flex flex-col bg-gray-50">
+                    <!-- Chat Header -->
+                    <div class="px-6 py-3 bg-white border-b border-gray-200 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <img src="../assets/images/designers/designer-1.jpg" alt="Emma Wilson" class="w-10 h-10 rounded-full mr-3" />
+                            <div>
+                                <h3 class="text-sm font-medium">Emma Wilson</h3>
+                                <p class="text-xs text-gray-500">Online • Fashion Designer at EcoChic</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <button class="text-gray-500 hover:text-gray-700" title="Video call">
+                                <i class="fas fa-video"></i>
+                            </button>
+                            <button class="text-gray-500 hover:text-gray-700" title="Audio call">
+                                <i class="fas fa-phone"></i>
+                            </button>
+                            <button class="text-gray-500 hover:text-gray-700" title="More options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Messages -->
+                    <div class="flex-1 p-6 overflow-y-auto">
+                        <!-- Date Separator -->
+                        <div class="flex justify-center mb-6">
+                            <span class="text-xs bg-gray-200 text-gray-600 px-3 py-1 rounded-full">Today, May 21, 2023</span>
+                        </div>
+                        
+                        <!-- Received Message -->
+                        <div class="flex mb-4">
+                            <img src="../assets/images/designers/designer-1.jpg" alt="Emma Wilson" class="w-8 h-8 rounded-full mr-2 self-end" />
+                            <div class="max-w-xs md:max-w-md">
+                                <div class="bg-white rounded-lg p-3 shadow">
+                                    <p class="text-sm">Hi Alex! Hope you're doing well. I've just uploaded my new collection to the platform. It features sustainable materials and minimalist designs.</p>
+                                </div>
+                                <span class="text-xs text-gray-500 leading-none mt-1">10:30 AM</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Received Message -->
+                        <div class="flex mb-4">
+                            <img src="../assets/images/designers/designer-1.jpg" alt="Emma Wilson" class="w-8 h-8 rounded-full mr-2 self-end" />
+                            <div class="max-w-xs md:max-w-md">
+                                <div class="bg-white rounded-lg p-3 shadow">
+                                    <p class="text-sm">Here's a preview of one of the pieces:</p>
+                                    <img src="../assets/images/products/dress.jpg" alt="Product preview" class="mt-2 rounded w-full max-w-xs h-auto" />
+                                </div>
+                                <span class="text-xs text-gray-500 leading-none mt-1">10:32 AM</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sent Message -->
+                        <div class="flex justify-end mb-4">
+                            <div class="max-w-xs md:max-w-md">
+                                <div class="bg-accent text-white rounded-lg p-3 shadow">
+                                    <p class="text-sm">This looks amazing, Emma! I really like the sustainable approach you're taking with your designs.</p>
+                                </div>
+                                <div class="flex justify-end">
+                                    <span class="text-xs text-gray-500 leading-none mt-1">10:35 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sent Message -->
+                        <div class="flex justify-end mb-4">
+                            <div class="max-w-xs md:max-w-md">
+                                <div class="bg-accent text-white rounded-lg p-3 shadow">
+                                    <p class="text-sm">Our customers have been asking for more eco-friendly options. I think these will sell really well in our boutique.</p>
+                                </div>
+                                <div class="flex justify-end">
+                                    <span class="text-xs text-gray-500 leading-none mt-1">10:36 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Received Message -->
+                        <div class="flex mb-4">
+                            <img src="../assets/images/designers/designer-1.jpg" alt="Emma Wilson" class="w-8 h-8 rounded-full mr-2 self-end" />
+                            <div class="max-w-xs md:max-w-md">
+                                <div class="bg-white rounded-lg p-3 shadow">
+                                    <p class="text-sm">That's great to hear! I've uploaded the full catalog with detailed information about materials and sizing. Could you take a look and let me know your thoughts?</p>
+                                </div>
+                                <span class="text-xs text-gray-500 leading-none mt-1">10:39 AM</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Received Message with File -->
+                        <div class="flex mb-4">
+                            <img src="../assets/images/designers/designer-1.jpg" alt="Emma Wilson" class="w-8 h-8 rounded-full mr-2 self-end" />
+                            <div class="max-w-xs md:max-w-md">
+                                <div class="bg-white rounded-lg p-3 shadow">
+                                    <div class="flex items-center bg-gray-50 p-2 rounded border border-gray-200">
+                                        <i class="fas fa-file-pdf text-red-500 mr-2"></i>
+                                        <div class="flex-1">
+                                            <p class="text-xs font-medium">EcoChic_Spring2023_Catalog.pdf</p>
+                                            <p class="text-xs text-gray-500">4.2 MB</p>
+                                        </div>
+                                        <button class="text-accent hover:text-accent-dark" title="Download file">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <span class="text-xs text-gray-500 leading-none mt-1">10:42 AM</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Typing Indicator -->
+                        <div class="flex mb-4">
+                            <img src="../assets/images/user-avatar.jpg" alt="Alex Morgan" class="w-8 h-8 rounded-full mr-2 self-end" />
+                            <div class="max-w-xs md:max-w-md">
+                                <div class="bg-gray-200 rounded-lg p-3 animate-pulse">
+                                    <div class="flex space-x-1">
+                                        <div class="w-2 h-2 bg-gray-500 rounded-full"></div>
+                                        <div class="w-2 h-2 bg-gray-500 rounded-full"></div>
+                                        <div class="w-2 h-2 bg-gray-500 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Message Input -->
+                    <div class="px-4 py-3 bg-white border-t border-gray-200">
+                        <div class="flex items-center">
+                            <button class="text-gray-500 hover:text-gray-700 mr-2" title="Attach file">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <div class="relative flex-1">
+                                <input type="text" placeholder="Type a message..." 
+                                       class="w-full py-2 px-4 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                                <button class="absolute right-2 inset-y-0 flex items-center text-gray-500 hover:text-gray-700" title="Add emoji">
+                                    <i class="far fa-smile"></i>
+                                </button>
+                            </div>
+                            <button class="ml-2 bg-accent text-white p-2 rounded-full hover:bg-accent/90" title="Send message">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

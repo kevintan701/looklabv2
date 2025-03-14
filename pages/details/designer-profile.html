@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookLab - Designer Profile</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/tailwind.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2d3748',
+                        secondary: '#4a5568',
+                        accent: '#f56565',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'SF Pro Text', 'sans-serif'],
+                        heading: ['Montserrat', 'SF Pro Display', 'sans-serif'],
+                        editorial: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-fashion-cream bg-fashion-pattern">
+    <div class="flex h-screen">
+        <!-- Left Sidebar Navigation -->
+        <div class="w-56 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <a href="../../index.html" class="flex items-center px-6 py-3 border-b border-gray-200">
+                <span class="text-xl font-semibold"><span class="text-accent">Look</span>Lab</span>
+            </a>
+            
+            <!-- User Profile Short -->
+            <div class="flex items-center px-6 py-3 border-b border-gray-200">
+                <img src="../../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                <div class="ml-3">
+                    <div class="text-sm font-medium">Alex Morgan</div>
+                    <div class="text-xs text-gray-500">Boutique Manager</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex-1 py-4">
+                <a href="../../index.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-home w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                
+                <!-- Discover with submenu -->
+                <div>
+                    <button class="w-full flex items-center justify-between px-6 py-2 text-accent hover:bg-gray-100 focus:outline-none cursor-pointer">
+                        <div class="flex items-center">
+                            <i class="fas fa-compass w-5"></i>
+                            <span class="ml-3">Discover</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs transform rotate-180"></i>
+                    </button>
+                    <div class="pl-14">
+                        <a href="../designers.html" class="block py-2 text-sm text-accent font-medium">
+                            Designers
+                        </a>
+                        <a href="../products.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Products
+                        </a>
+                        <a href="../trending.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Trending
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="../inventory.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-boxes-stacked w-5"></i>
+                    <span class="ml-3">Inventory</span>
+                </a>
+                
+                <a href="../messages.html" class="flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-comments w-5"></i>
+                        <span class="ml-3">Messages</span>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                </a>
+                
+                <a href="../aiassistant.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-robot w-5"></i>
+                    <span class="ml-3">AI Assistant</span>
+                </a>
+                
+                <a href="../profile.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-user w-5"></i>
+                    <span class="ml-3">Profile</span>
+                </a>
+                
+                <a href="../settings.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100 mt-auto">
+                    <i class="fas fa-cog w-5"></i>
+                    <span class="ml-3">Settings</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <!-- Search Bar -->
+                    <div class="relative w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" placeholder="Search for designers, products, or trends..." 
+                               class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                    </div>
+                    
+                    <!-- Right Side Actions -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-900 relative" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="flex items-center">
+                            <img src="../../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                            <span class="ml-2">Alex Morgan</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto p-6 discover-page">
+                <div class="max-w-7xl mx-auto">
+                    <!-- Breadcrumb Navigation -->
+                    <nav class="text-sm mb-6 animate-fade-in">
+                        <ol class="list-none p-0 flex items-center space-x-2">
+                            <li class="flex items-center">
+                                <a href="../designers.html" class="text-gray-500 hover:text-accent">Designers</a>
+                                <span class="mx-2 text-gray-400">/</span>
+                            </li>
+                            <li class="text-accent font-medium">Elena Moretti</li>
+                        </ol>
+                    </nav>
+                    
+                    <!-- Designer Hero Section -->
+                    <div class="mb-12 animate-fade-in">
+                        <div class="bg-white border-editorial">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+                                <div class="md:col-span-1">
+                                    <div class="h-full">
+                                        <img src="../../assets/images/designers/designer-spotlight.jpg" alt="Elena Moretti" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <div class="md:col-span-2 p-8">
+                                    <div class="mb-2 text-sm letter-spacing-wide uppercase text-accent">Featured Designer</div>
+                                    <h1 class="font-editorial text-4xl mb-4">Elena Moretti</h1>
+                                    <div class="flex items-center mb-6">
+                                        <span class="text-sm letter-spacing-wide uppercase mr-4">Milan, Italy</span>
+                                        <span class="text-sm letter-spacing-wide uppercase">Est. 2015</span>
+                                    </div>
+                                    
+                                    <p class="mb-6 text-gray-700">
+                                        Revolutionizing sustainable fashion with her innovative use of biomaterials and zero-waste patterns. Based in Milan, Elena Moretti's designs blend traditional Italian craftsmanship with futuristic concepts, creating pieces that are both timeless and forward-thinking.
+                                    </p>
+                                    
+                                    <div class="designer-quote mb-6">
+                                        My mission is to create fashion that doesn't compromise our planet's future. Every piece tells a story of innovation, respect for tradition, and environmental consciousness.
+                                    </div>
+                                    
+                                    <div class="flex space-x-4 mb-8">
+                                        <a href="#" class="text-gray-600 hover:text-accent">
+                                            <i class="fab fa-instagram text-lg"></i>
+                                        </a>
+                                        <a href="#" class="text-gray-600 hover:text-accent">
+                                            <i class="fab fa-linkedin text-lg"></i>
+                                        </a>
+                                        <a href="#" class="text-gray-600 hover:text-accent">
+                                            <i class="fa fa-globe text-lg"></i>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-fashion-cream text-gray-800 text-xs py-1 px-3 border border-gray-200">Sustainable</span>
+                                        <span class="bg-fashion-cream text-gray-800 text-xs py-1 px-3 border border-gray-200">Zero-Waste</span>
+                                        <span class="bg-fashion-cream text-gray-800 text-xs py-1 px-3 border border-gray-200">Biomaterials</span>
+                                        <span class="bg-fashion-cream text-gray-800 text-xs py-1 px-3 border border-gray-200">Italian Craftsmanship</span>
+                                        <span class="bg-fashion-cream text-gray-800 text-xs py-1 px-3 border border-gray-200">Luxury</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Designer Info Tabs -->
+                    <div class="mb-10 animate-fade-in">
+                        <div class="border-b border-editorial">
+                            <nav class="flex -mb-px">
+                                <button class="px-4 py-3 border-b-2 border-accent text-accent font-medium">Collection</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">About</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Sustainability</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Lookbook</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Contact</button>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <!-- Current Collection -->
+                    <div class="mb-12 animate-fade-in-up">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="font-editorial text-2xl">Autumn/Winter 2023</h2>
+                            <div class="flex items-center">
+                                <span class="text-sm letter-spacing-wide mr-4">20 Pieces</span>
+                                <select class="border-editorial py-1 px-2 text-sm focus:outline-none focus:border-accent" title="Sort collection">
+                                    <option>Most Recent</option>
+                                    <option>Price: High to Low</option>
+                                    <option>Price: Low to High</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="product-grid">
+                            <!-- Product Card 1 -->
+                            <div class="fashion-card product-card group stagger-item stagger-item-1">
+                                <div class="relative overflow-hidden">
+                                    <img src="../../assets/images/products/dress.jpg" alt="Organic Linen Dress" class="w-full h-96 object-cover product-image">
+                                    <div class="badge-new">New</div>
+                                    <button class="absolute top-2 right-2 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-accent z-10" title="Add to favorites">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                        <div class="product-actions flex space-x-2 mt-4">
+                                            <a href="product-detail.html" class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                Quick View
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-editorial text-lg mb-1 product-title">Organic Linen Wrap Dress</h3>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm text-gray-600 fashion-caption">Zero-Waste Pattern</span>
+                                        <div class="flex items-center text-fashion-gold text-sm">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Price Information -->
+                                    <div class="mt-3 space-y-1 border-t border-gray-100 pt-3">
+                                        <div class="flex justify-between text-sm">
+                                            <span class="text-gray-600 letter-spacing-wide">MSRP:</span>
+                                            <span class="price-msrp">$295.00</span>
+                                        </div>
+                                        <div class="flex justify-between text-sm">
+                                            <span class="text-gray-600 letter-spacing-wide">Wholesale:</span>
+                                            <span class="price-wholesale">$147.50</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex space-x-2 mt-4">
+                                        <button class="flex-1 fashion-button bg-accent text-white py-2">
+                                            Connect
+                                        </button>
+                                        <button class="bg-gray-100 w-10 flex items-center justify-center" title="View details">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Card 2 -->
+                            <div class="fashion-card product-card group stagger-item stagger-item-2">
+                                <div class="relative overflow-hidden">
+                                    <img src="../../assets/images/products/blazer.jpg" alt="Recycled Wool Blazer" class="w-full h-96 object-cover product-image">
+                                    <button class="absolute top-2 right-2 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-accent z-10" title="Add to favorites">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                        <div class="product-actions flex space-x-2 mt-4">
+                                            <a href="product-detail.html" class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                Quick View
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-editorial text-lg mb-1 product-title">Recycled Wool Structured Blazer</h3>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm text-gray-600 fashion-caption">Tailored Silhouette</span>
+                                        <div class="flex items-center text-fashion-gold text-sm">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Price Information -->
+                                    <div class="mt-3 space-y-1 border-t border-gray-100 pt-3">
+                                        <div class="flex justify-between text-sm">
+                                            <span class="text-gray-600 letter-spacing-wide">MSRP:</span>
+                                            <span class="price-msrp">$425.00</span>
+                                        </div>
+                                        <div class="flex justify-between text-sm">
+                                            <span class="text-gray-600 letter-spacing-wide">Wholesale:</span>
+                                            <span class="price-wholesale">$212.50</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex space-x-2 mt-4">
+                                        <button class="flex-1 fashion-button bg-accent text-white py-2">
+                                            Connect
+                                        </button>
+                                        <button class="bg-gray-100 w-10 flex items-center justify-center" title="View details">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Card 3 -->
+                            <div class="fashion-card product-card group stagger-item stagger-item-3">
+                                <div class="relative overflow-hidden">
+                                    <img src="../../assets/images/products/jeans.jpg" alt="Biodegradable Denim" class="w-full h-96 object-cover product-image">
+                                    <div class="badge-sale">Low Stock</div>
+                                    <button class="absolute top-2 right-2 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-accent z-10" title="Add to favorites">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                        <div class="product-actions flex space-x-2 mt-4">
+                                            <a href="product-detail.html" class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                Quick View
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-editorial text-lg mb-1 product-title">Biodegradable Wide-Leg Jeans</h3>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-sm text-gray-600 fashion-caption">Natural Dye Process</span>
+                                        <div class="flex items-center text-fashion-gold text-sm">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Price Information -->
+                                    <div class="mt-3 space-y-1 border-t border-gray-100 pt-3">
+                                        <div class="flex justify-between text-sm">
+                                            <span class="text-gray-600 letter-spacing-wide">MSRP:</span>
+                                            <span class="price-msrp">$275.00</span>
+                                        </div>
+                                        <div class="flex justify-between text-sm">
+                                            <span class="text-gray-600 letter-spacing-wide">Wholesale:</span>
+                                            <span class="price-wholesale">$137.50</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex space-x-2 mt-4">
+                                        <button class="flex-1 fashion-button bg-accent text-white py-2">
+                                            Connect
+                                        </button>
+                                        <button class="bg-gray-100 w-10 flex items-center justify-center" title="View details">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Designer Story Section -->
+                    <div class="mb-12 animate-fade-in">
+                        <div class="section-header mb-6">
+                            <h2 class="font-editorial text-2xl">Designer Story</h2>
+                        </div>
+                        
+                        <div class="bg-white border-editorial p-8">
+                            <div class="max-w-4xl mx-auto">
+                                <p class="mb-6 text-gray-700">
+                                    Elena Moretti's journey began in 2015 after a decade working in traditional Italian fashion houses. Disillusioned by the industry's environmental impact, she set out to create a brand that honored her country's craftsmanship heritage while pioneering sustainable practices.
+                                </p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                                    <div>
+                                        <p class="mb-4 text-gray-700">
+                                            Her breakthrough came in 2018 with the development of a revolutionary silk-like fabric made from orange peel waste sourced from Sicily's citrus industry. This innovation earned her the prestigious European Sustainable Fashion Award and established her as a leader in biomaterial development.
+                                        </p>
+                                        <p class="text-gray-700">
+                                            Today, Elena's Milan atelier serves as both design studio and materials laboratory, where she continues to push the boundaries of what's possible in sustainable luxury fashion.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <img src="../../assets/images/designers/designer-studio.jpg" alt="Elena Moretti in her studio" class="w-full h-auto border-editorial">
+                                    </div>
+                                </div>
+                                
+                                <div class="designer-quote my-8">
+                                    True innovation in fashion comes from challenging our relationship with materials. We must question not just what we create, but how and why we create it.
+                                </div>
+                                
+                                <p class="text-gray-700">
+                                    Elena's designs have been featured in Vogue Italia, worn by celebrities on the red carpet, and displayed in the permanent collection at Milan's Museum of Fashion and Design. Despite her growing profile, she maintains a commitment to small-batch production and personal oversight of her supply chain.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Designer -->
+                    <div class="mb-12 animate-fade-in">
+                        <div class="bg-fashion-beige p-8 border-editorial">
+                            <div class="max-w-4xl mx-auto text-center">
+                                <h2 class="font-editorial text-2xl mb-4">Interested in Elena's Collection?</h2>
+                                <p class="mb-6">Connect directly to discuss wholesale opportunities, custom orders, or collaboration possibilities.</p>
+                                <div class="flex justify-center">
+                                    <button class="fashion-button bg-fashion-black text-white py-2 px-6">Contact Designer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Similar Designers -->
+                    <div class="mb-12 animate-fade-in-up">
+                        <div class="section-header mb-6">
+                            <h2 class="font-editorial text-2xl">Similar Designers</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Designer Card 1 -->
+                            <div class="fashion-card hover-lift">
+                                <div class="flex items-center p-4">
+                                    <img src="../../assets/images/designers/designer-1.jpg" alt="Isabella Ramirez" class="w-16 h-16 rounded-full">
+                                    <div class="ml-4">
+                                        <h3 class="font-editorial text-lg">Isabella Ramirez</h3>
+                                        <p class="text-sm text-gray-600">Sustainable Minimalism</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Designer Card 2 -->
+                            <div class="fashion-card hover-lift">
+                                <div class="flex items-center p-4">
+                                    <img src="../../assets/images/designers/designer-3.jpg" alt="Sophie Brown" class="w-16 h-16 rounded-full">
+                                    <div class="ml-4">
+                                        <h3 class="font-editorial text-lg">Sophie Brown</h3>
+                                        <p class="text-sm text-gray-600">Eco Denim Innovation</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Designer Card 3 -->
+                            <div class="fashion-card hover-lift">
+                                <div class="flex items-center p-4">
+                                    <img src="../../assets/images/designers/designer-5.jpg" alt="Akiko Tanaka" class="w-16 h-16 rounded-full">
+                                    <div class="ml-4">
+                                        <h3 class="font-editorial text-lg">Akiko Tanaka</h3>
+                                        <p class="text-sm text-gray-600">Architectural Knitwear</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html> 

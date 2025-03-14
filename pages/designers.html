@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookLab - Designers</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2d3748',
+                        secondary: '#4a5568',
+                        accent: '#f56565',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'SF Pro Text', 'sans-serif'],
+                        heading: ['Montserrat', 'SF Pro Display', 'sans-serif'],
+                        editorial: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-fashion-cream bg-fashion-pattern">
+    <div class="flex h-screen">
+        <!-- Left Sidebar Navigation -->
+        <div class="w-56 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <a href="../index.html" class="flex items-center px-6 py-3 border-b border-gray-200">
+                <span class="text-xl font-semibold"><span class="text-accent">Look</span>Lab</span>
+            </a>
+            
+            <!-- User Profile Short -->
+            <div class="flex items-center px-6 py-3 border-b border-gray-200">
+                <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                <div class="ml-3">
+                    <div class="text-sm font-medium">Alex Morgan</div>
+                    <div class="text-xs text-gray-500">Boutique Manager</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex-1 py-4">
+                <a href="../index.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-home w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                
+                <!-- Discover with submenu -->
+                <div>
+                    <button class="w-full flex items-center justify-between px-6 py-2 text-accent hover:bg-gray-100 focus:outline-none cursor-pointer">
+                        <div class="flex items-center">
+                            <i class="fas fa-compass w-5"></i>
+                            <span class="ml-3">Discover</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs transform rotate-180"></i>
+                    </button>
+                    <div class="pl-14">
+                        <a href="designers.html" class="block py-2 text-sm text-accent font-medium">
+                            Designers
+                        </a>
+                        <a href="products.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Products
+                        </a>
+                        <a href="trending.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Trending
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="inventory.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-boxes-stacked w-5"></i>
+                    <span class="ml-3">Inventory</span>
+                </a>
+                
+                <a href="messages.html" class="flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-comments w-5"></i>
+                        <span class="ml-3">Messages</span>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                </a>
+                
+                <a href="aiassistant.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-robot w-5"></i>
+                    <span class="ml-3">AI Assistant</span>
+                </a>
+                
+                <a href="profile.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-user w-5"></i>
+                    <span class="ml-3">Profile</span>
+                </a>
+                
+                <a href="settings.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100 mt-auto">
+                    <i class="fas fa-cog w-5"></i>
+                    <span class="ml-3">Settings</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <!-- Search Bar -->
+                    <div class="relative w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" placeholder="Search for designers, products, or trends..." 
+                               class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                    </div>
+                    
+                    <!-- Right Side Actions -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-900 relative" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="flex items-center">
+                            <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                            <span class="ml-2">Alex Morgan</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto p-6 discover-page">
+                <div class="max-w-7xl mx-auto">
+                    <h1 class="font-editorial text-4xl mb-3 animate-fade-in">Designers</h1>
+                    <p class="font-editorial text-gray-600 italic mb-6 max-w-3xl animate-fade-in">Discover the visionary creators shaping the fashion landscape with their unique perspectives and artistic innovations.</p>
+                    
+                    <!-- Secondary navigation for Discover section -->
+                    <div class="discover-sub-nav mb-8 animate-fade-in">
+                        <div class="flex">
+                            <a href="designers.html" class="flex-1 py-2 px-4 text-center text-accent font-medium active">
+                                Designers
+                            </a>
+                            <a href="products.html" class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-accent">
+                                Products
+                            </a>
+                            <a href="trending.html" class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-accent">
+                                Trending
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Filters section -->
+                    <div class="mb-8 grid grid-cols-1 md:grid-cols-6 gap-4 animate-fade-in">
+                        <div class="md:col-span-2">
+                            <label class="block text-sm letter-spacing-wide uppercase text-gray-600 mb-2">Focus Area</label>
+                            <select class="w-full border-editorial py-2 px-3 focus:outline-none focus:border-accent bg-white" title="Filter designers by focus area">
+                                <option value="">All Categories</option>
+                                <option value="ready-to-wear">Ready-to-Wear</option>
+                                <option value="sustainable">Sustainable</option>
+                                <option value="avant-garde">Avant-Garde</option>
+                                <option value="accessories">Accessories</option>
+                                <option value="jewelry">Jewelry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label class="block text-sm letter-spacing-wide uppercase text-gray-600 mb-2">Location</label>
+                            <select class="w-full border-editorial py-2 px-3 focus:outline-none focus:border-accent bg-white" title="Filter designers by location">
+                                <option value="">All Locations</option>
+                                <option value="new-york">New York</option>
+                                <option value="los-angeles">Los Angeles</option>
+                                <option value="paris">Paris</option>
+                                <option value="london">London</option>
+                                <option value="milan">Milan</option>
+                                <option value="tokyo">Tokyo</option>
+                            </select>
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label class="block text-sm letter-spacing-wide uppercase text-gray-600 mb-2">Sort By</label>
+                            <select class="w-full border-editorial py-2 px-3 focus:outline-none focus:border-accent bg-white" title="Sort designers by selected criteria">
+                                <option value="featured">Featured</option>
+                                <option value="newest">Newest</option>
+                                <option value="a-z">A-Z</option>
+                                <option value="popular">Most Popular</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Designer Spotlight -->
+                    <div class="mb-12 border-editorial animate-fade-in-up">
+                        <div class="relative w-full h-80 overflow-hidden">
+                            <img src="../assets/images/designers/designer-spotlight.jpg" alt="Designer Spotlight" class="w-full h-full object-cover img-zoom">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                <div class="p-8 text-white">
+                                    <p class="text-sm letter-spacing-wide uppercase mb-2">Featured Designer</p>
+                                    <h2 class="font-editorial text-3xl mb-2">Elena Moretti</h2>
+                                    <p class="text-sm max-w-lg">Revolutionizing sustainable fashion with her innovative use of biomaterials and zero-waste patterns. Based in Milan, her designs blend traditional Italian craftsmanship with futuristic concepts.</p>
+                                    <a href="details/designer-profile.html" class="fashion-button bg-white text-fashion-black mt-4 py-2 px-6">View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Designer Category Section -->
+                    <div class="mb-10 animate-fade-in-up">
+                        <h2 class="font-editorial text-2xl mb-6">Emerging Designers</h2>
+                        <div class="fashion-grid">
+                            <!-- Designer Card 1 -->
+                            <div class="fashion-card designer-card stagger-item-1">
+                                <div class="relative overflow-hidden h-80">
+                                    <img src="../assets/images/designers/designer-1.jpg" alt="Designer 1" class="w-full h-full object-cover img-zoom">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                                    <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                                        <h3 class="font-editorial text-lg">Isabella Ramirez</h3>
+                                        <p class="text-sm">Sustainable Minimalism</p>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-gray-600 mb-3">Based in Los Angeles, Isabella's work focuses on minimalist designs that emphasize sustainable materials and ethical production practices.</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs letter-spacing-wide uppercase">Since 2021</span>
+                                        <button class="text-accent text-sm hover:underline">View Collection</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Designer Card 2 -->
+                            <div class="fashion-card designer-card stagger-item-2">
+                                <div class="relative overflow-hidden h-80">
+                                    <img src="../assets/images/designers/designer-2.jpg" alt="Designer 2" class="w-full h-full object-cover img-zoom">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                                    <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                                        <h3 class="font-editorial text-lg">Marcus Chen</h3>
+                                        <p class="text-sm">Avant-Garde Streetwear</p>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-gray-600 mb-3">New York-based designer blending avant-garde silhouettes with streetwear influences, creating bold pieces that challenge conventional fashion norms.</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs letter-spacing-wide uppercase">Since 2019</span>
+                                        <button class="text-accent text-sm hover:underline">View Collection</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Designer Card 3 -->
+                            <div class="fashion-card designer-card stagger-item-3">
+                                <div class="relative overflow-hidden h-80">
+                                    <img src="../assets/images/designers/designer-3.jpg" alt="Designer 3" class="w-full h-full object-cover img-zoom">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                                    <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                                        <h3 class="font-editorial text-lg">Sophie Brown</h3>
+                                        <p class="text-sm">Eco Denim Innovation</p>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-gray-600 mb-3">London-based designer revolutionizing denim production with eco-friendly processes and innovative recycling techniques that minimize water usage.</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs letter-spacing-wide uppercase">Since 2020</span>
+                                        <button class="text-accent text-sm hover:underline">View Collection</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Established Designers Section -->
+                    <div class="mb-10 animate-fade-in-up">
+                        <h2 class="font-editorial text-2xl mb-6">Established Designers</h2>
+                        <div class="fashion-grid">
+                            <!-- Designer Card 4 -->
+                            <div class="fashion-card designer-card stagger-item-4">
+                                <div class="relative overflow-hidden h-80">
+                                    <img src="../assets/images/designers/designer-4.jpg" alt="Designer 4" class="w-full h-full object-cover img-zoom">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                                    <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                                        <h3 class="font-editorial text-lg">Jean-Paul Mercier</h3>
+                                        <p class="text-sm">Luxury Ready-to-Wear</p>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-gray-600 mb-3">Paris-based designer known for combining luxurious fabrics with contemporary silhouettes, creating sophisticated yet wearable collections.</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs letter-spacing-wide uppercase">Since 2010</span>
+                                        <button class="text-accent text-sm hover:underline">View Collection</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Designer Card 5 -->
+                            <div class="fashion-card designer-card stagger-item-5">
+                                <div class="relative overflow-hidden h-80">
+                                    <img src="../assets/images/designers/designer-5.jpg" alt="Designer 5" class="w-full h-full object-cover img-zoom">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                                    <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                                        <h3 class="font-editorial text-lg">Akiko Tanaka</h3>
+                                        <p class="text-sm">Architectural Knitwear</p>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-gray-600 mb-3">Tokyo-based designer celebrated for her architectural approach to knitwear, creating sculptural pieces that push the boundaries of textile manipulation.</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs letter-spacing-wide uppercase">Since 2012</span>
+                                        <button class="text-accent text-sm hover:underline">View Collection</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Designer Card 6 -->
+                            <div class="fashion-card designer-card stagger-item-6">
+                                <div class="relative overflow-hidden h-80">
+                                    <img src="../assets/images/designers/designer-6.jpg" alt="Designer 6" class="w-full h-full object-cover img-zoom">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                                    <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                                        <h3 class="font-editorial text-lg">Michael Rodriguez</h3>
+                                        <p class="text-sm">Modern Tailoring</p>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-gray-600 mb-3">Milan-based designer known for reinventing traditional tailoring with contemporary cuts and unexpected details, bridging formal and casual wear.</p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs letter-spacing-wide uppercase">Since 2008</span>
+                                        <button class="text-accent text-sm hover:underline">View Collection</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Section -->
+                    <div class="mb-12 animate-fade-in">
+                        <div class="bg-fashion-black text-white p-8 border-editorial">
+                            <div class="max-w-4xl mx-auto text-center">
+                                <h2 class="font-editorial text-3xl mb-4">Are You a Designer?</h2>
+                                <p class="mb-6">Join our platform to showcase your collections, connect with boutiques and retailers, and grow your brand globally.</p>
+                                <button class="fashion-button border-2 border-white bg-transparent hover:bg-white hover:text-fashion-black py-2 px-6">Apply to Join</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Load More Section -->
+                    <div class="text-center mb-12 animate-fade-in">
+                        <button class="fashion-button bg-fashion-gold text-white py-2 px-8">Load More Designers</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

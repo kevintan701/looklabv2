@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookLab - Products</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2d3748',
+                        secondary: '#4a5568',
+                        accent: '#f56565',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'SF Pro Text', 'sans-serif'],
+                        heading: ['Montserrat', 'SF Pro Display', 'sans-serif'],
+                        editorial: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-fashion-cream bg-fashion-pattern">
+    <div class="flex h-screen">
+        <!-- Left Sidebar Navigation -->
+        <div class="w-56 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <a href="../index.html" class="flex items-center px-6 py-3 border-b border-gray-200">
+                <span class="text-xl font-semibold"><span class="text-accent">Look</span>Lab</span>
+            </a>
+            
+            <!-- User Profile Short -->
+            <div class="flex items-center px-6 py-3 border-b border-gray-200">
+                <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                <div class="ml-3">
+                    <div class="text-sm font-medium">Alex Morgan</div>
+                    <div class="text-xs text-gray-500">Boutique Manager</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex-1 py-4">
+                <a href="../index.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-home w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                
+                <!-- Discover with submenu -->
+                <div>
+                    <button class="w-full flex items-center justify-between px-6 py-2 text-accent hover:bg-gray-100 focus:outline-none cursor-pointer">
+                        <div class="flex items-center">
+                            <i class="fas fa-compass w-5"></i>
+                            <span class="ml-3">Discover</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs transform rotate-180"></i>
+                    </button>
+                    <div class="pl-14">
+                        <a href="designers.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Designers
+                        </a>
+                        <a href="products.html" class="block py-2 text-sm text-accent font-medium">
+                            Products
+                        </a>
+                        <a href="trending.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Trending
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="inventory.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-boxes-stacked w-5"></i>
+                    <span class="ml-3">Inventory</span>
+                </a>
+                
+                <a href="messages.html" class="flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-comments w-5"></i>
+                        <span class="ml-3">Messages</span>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                </a>
+                
+                <a href="aiassistant.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-robot w-5"></i>
+                    <span class="ml-3">AI Assistant</span>
+                </a>
+                
+                <a href="profile.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-user w-5"></i>
+                    <span class="ml-3">Profile</span>
+                </a>
+                
+                <a href="settings.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100 mt-auto">
+                    <i class="fas fa-cog w-5"></i>
+                    <span class="ml-3">Settings</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <!-- Search Bar -->
+                    <div class="relative w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" placeholder="Search for products..." 
+                               class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                    </div>
+                    
+                    <!-- Right Side Actions -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-900 relative" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="flex items-center">
+                            <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                            <span class="ml-2">Alex Morgan</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto p-6 discover-page">
+                <div class="max-w-7xl mx-auto">
+                    <h1 class="font-editorial text-4xl mb-3 animate-fade-in">Products</h1>
+                    <p class="font-editorial text-gray-600 italic mb-6 max-w-3xl animate-fade-in">Curated pieces from independent designers with unique vision.</p>
+                    
+                    <!-- Secondary navigation for Discover section -->
+                    <div class="discover-sub-nav mb-8 animate-fade-in">
+                        <div class="flex">
+                            <a href="designers.html" class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-accent">
+                                Designers
+                            </a>
+                            <a href="products.html" class="flex-1 py-2 px-4 text-center text-accent font-medium active">
+                                Products
+                            </a>
+                            <a href="trending.html" class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-accent">
+                                Trending
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center mb-8 animate-fade-in">
+                        <div class="text-sm text-gray-600 font-medium letter-spacing-wide uppercase">48 products</div>
+                        <div class="flex items-center space-x-3">
+                            <button class="text-accent hover:text-gray-800" aria-label="View grid" title="Grid view">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-accent" aria-label="View list" title="List view">
+                                <i class="fas fa-list"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-accent" aria-label="Favorite products" title="Favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="ml-4">
+                                <label for="sort-by" class="text-sm letter-spacing-wide uppercase text-gray-600 mr-2">Sort:</label>
+                                <select id="sort-by" class="border-0 border-b border-editorial px-2 py-1 text-sm focus:outline-none focus:border-accent bg-transparent">
+                                    <option>Newest</option>
+                                    <option>Price: Low-High</option>
+                                    <option>Price: High-Low</option>
+                                    <option>Popular</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Filters and Product Grid -->
+                    <div class="flex flex-col gap-6">
+                        <!-- Horizontal Filter Bar -->
+                        <div class="bg-white border-editorial p-4 animate-fade-in-up sticky top-0 z-30">
+                            <div class="flex justify-between items-center mb-4">
+                                <h2 class="font-editorial text-lg">Filters</h2>
+                                <button class="text-xs text-accent">Reset All</button>
+                            </div>
+                            
+                            <!-- Horizontal filter layout -->
+                            <div class="flex flex-wrap gap-4">
+                                <!-- Category Filter Dropdown -->
+                                <div class="relative filter-dropdown">
+                                    <button class="flex items-center justify-between bg-gray-50 px-4 py-2 border border-gray-200 rounded-sm min-w-[140px] filter-toggle" title="Filter by category">
+                                        <span class="text-xs font-medium uppercase">Category</span>
+                                        <i class="fas fa-chevron-down text-xs ml-2"></i>
+                                    </button>
+                                    <div class="absolute left-0 top-full mt-1 bg-white shadow-md border border-gray-200 p-3 z-50 min-w-[200px] rounded-sm filter-menu hidden">
+                                        <div class="space-y-2">
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Tops</span>
+                                                <span class="ml-auto text-gray-500 text-xs">(28)</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Bottoms</span>
+                                                <span class="ml-auto text-gray-500 text-xs">(16)</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Dresses</span>
+                                                <span class="ml-auto text-gray-500 text-xs">(12)</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Outerwear</span>
+                                                <span class="ml-auto text-gray-500 text-xs">(9)</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Accessories</span>
+                                                <span class="ml-auto text-gray-500 text-xs">(14)</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Designer Filter Dropdown -->
+                                <div class="relative filter-dropdown">
+                                    <button class="flex items-center justify-between bg-gray-50 px-4 py-2 border border-gray-200 rounded-sm min-w-[140px] filter-toggle" title="Filter by designer">
+                                        <span class="text-xs font-medium uppercase">Designer</span>
+                                        <i class="fas fa-chevron-down text-xs ml-2"></i>
+                                    </button>
+                                    <div class="absolute left-0 top-full mt-1 bg-white shadow-md border border-gray-200 p-3 z-50 min-w-[200px] rounded-sm filter-menu hidden">
+                                        <div class="space-y-2">
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Emma Wilson</span>
+                                                <span class="ml-auto text-gray-500 text-xs">(14)</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Marco Chen</span>
+                                                <span class="ml-auto text-gray-500 text-xs">(8)</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Sophie Brown</span>
+                                                <span class="ml-auto text-gray-500 text-xs">(10)</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Liam Johnson</span>
+                                                <span class="ml-auto text-gray-500 text-xs">(12)</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Price Range Filter Dropdown -->
+                                <div class="relative filter-dropdown">
+                                    <button class="flex items-center justify-between bg-gray-50 px-4 py-2 border border-gray-200 rounded-sm min-w-[140px] filter-toggle" title="Filter by price range">
+                                        <span class="text-xs font-medium uppercase">Price</span>
+                                        <i class="fas fa-chevron-down text-xs ml-2"></i>
+                                    </button>
+                                    <div class="absolute left-0 top-full mt-1 bg-white shadow-md border border-gray-200 p-3 z-50 min-w-[200px] rounded-sm filter-menu hidden">
+                                        <div class="space-y-2">
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>$0 - $50</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>$50 - $100</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>$100 - $200</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>$200+</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Material Filter Dropdown -->
+                                <div class="relative filter-dropdown">
+                                    <button class="flex items-center justify-between bg-gray-50 px-4 py-2 border border-gray-200 rounded-sm min-w-[140px] filter-toggle" title="Filter by material">
+                                        <span class="text-xs font-medium uppercase">Material</span>
+                                        <i class="fas fa-chevron-down text-xs ml-2"></i>
+                                    </button>
+                                    <div class="absolute left-0 top-full mt-1 bg-white shadow-md border border-gray-200 p-3 z-50 min-w-[200px] rounded-sm filter-menu hidden">
+                                        <div class="space-y-2">
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Organic Cotton</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Recycled Polyester</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Sustainable Denim</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Tencel/Lyocell</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Options Filter Dropdown -->
+                                <div class="relative filter-dropdown">
+                                    <button class="flex items-center justify-between bg-gray-50 px-4 py-2 border border-gray-200 rounded-sm min-w-[140px] filter-toggle" title="Filter by pricing options">
+                                        <span class="text-xs font-medium uppercase">Options</span>
+                                        <i class="fas fa-chevron-down text-xs ml-2"></i>
+                                    </button>
+                                    <div class="absolute left-0 top-full mt-1 bg-white shadow-md border border-gray-200 p-3 z-50 min-w-[200px] rounded-sm filter-menu hidden">
+                                        <div class="space-y-2">
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Wholesale</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>Consignment</span>
+                                            </label>
+                                            <label class="flex items-center text-xs cursor-pointer">
+                                                <input type="checkbox" class="form-checkbox text-accent rounded-none mr-2 h-3 w-3">
+                                                <span>MSRP Discounts</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Active Filters Display -->
+                                <div class="flex-1 flex items-center">
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-gray-100 text-xs px-2 py-1 rounded-sm flex items-center">
+                                            Dresses
+                                            <button class="ml-1 text-gray-500 hover:text-accent" title="Remove Dresses filter">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </span>
+                                        <span class="bg-gray-100 text-xs px-2 py-1 rounded-sm flex items-center">
+                                            $100-$200
+                                            <button class="ml-1 text-gray-500 hover:text-accent" title="Remove $100-$200 filter">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Grid (Wide full-width layout) -->
+                        <div>
+                            <!-- Featured Categories Section -->
+                            <div class="mb-12 animate-fade-in">
+                                <h2 class="font-editorial text-2xl mb-6">Browse Categories</h2>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    <a href="#" class="relative overflow-hidden group">
+                                        <div class="h-40 overflow-hidden border-editorial">
+                                            <img src="../assets/images/categories/womens.jpg" alt="Women's Fashion" class="w-full h-full object-cover transition-transform group-hover:scale-105">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                                                <h3 class="font-editorial text-white text-lg">Women's Fashion</h3>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="relative overflow-hidden group">
+                                        <div class="h-40 overflow-hidden border-editorial">
+                                            <img src="../assets/images/categories/mens.jpg" alt="Men's Fashion" class="w-full h-full object-cover transition-transform group-hover:scale-105">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                                                <h3 class="font-editorial text-white text-lg">Men's Fashion</h3>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="relative overflow-hidden group">
+                                        <div class="h-40 overflow-hidden border-editorial">
+                                            <img src="../assets/images/categories/accessories.jpg" alt="Accessories" class="w-full h-full object-cover transition-transform group-hover:scale-105">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                                                <h3 class="font-editorial text-white text-lg">Accessories</h3>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="relative overflow-hidden group">
+                                        <div class="h-40 overflow-hidden border-editorial">
+                                            <img src="../assets/images/categories/sustainable.jpg" alt="Sustainable" class="w-full h-full object-cover transition-transform group-hover:scale-105">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                                                <h3 class="font-editorial text-white text-lg">Sustainable</h3>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                            <!-- Recent Arrivals -->
+                            <div class="mb-12 animate-fade-in">
+                                <div class="flex items-center justify-between mb-6">
+                                    <h2 class="font-editorial text-2xl">Recent Arrivals</h2>
+                                    <a href="#" class="text-accent text-sm letter-spacing-wide hover:underline">View All New Arrivals</a>
+                                </div>
+                                <div class="product-grid">
+                                    <!-- Product Card 1 -->
+                                    <div class="fashion-card product-card group stagger-item stagger-item-1">
+                                        <div class="relative overflow-hidden">
+                                            <img src="../assets/images/products/dress.jpg" alt="Minimal Dress" class="w-full h-96 object-cover product-image">
+                                            <div class="badge-new">New</div>
+                                            <button class="absolute top-2 right-2 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-accent z-10" title="Add to favorites">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                            <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                                <div class="text-white">
+                                                    <p class="font-editorial text-sm uppercase tracking-widest mb-1">Spring Collection</p>
+                                                    <p class="font-editorial text-xl">Emma Wilson</p>
+                                                </div>
+                                                <div class="product-actions flex space-x-2 mt-4">
+                                                    <button class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                        Quick View
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <h3 class="font-editorial text-lg mb-1 product-title">Minimal Shift Dress</h3>
+                                            <div class="flex justify-between mb-2">
+                                                <span class="text-sm text-gray-600 fashion-caption">Sustainable Minimalism</span>
+                                                <div class="flex items-center text-fashion-gold text-sm">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Price Information -->
+                                            <div class="mt-3 space-y-1 border-t border-gray-100 pt-3">
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">MSRP:</span>
+                                                    <span class="price-msrp">$189.00</span>
+                                                </div>
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">Wholesale:</span>
+                                                    <span class="price-wholesale">$94.50</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex space-x-2 mt-4">
+                                                <button class="flex-1 fashion-button bg-accent text-white py-2">
+                                                    Connect
+                                                </button>
+                                                <button class="bg-gray-100 w-10 flex items-center justify-center" title="View details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Product Card 2 -->
+                                    <div class="fashion-card product-card group stagger-item stagger-item-2">
+                                        <div class="relative overflow-hidden">
+                                            <img src="../assets/images/products/blazer.jpg" alt="Structured Blazer" class="w-full h-96 object-cover product-image">
+                                            <button class="absolute top-2 right-2 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-accent z-10" title="Add to favorites">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                            <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                                <div class="text-white">
+                                                    <p class="font-editorial text-sm uppercase tracking-widest mb-1">Essentials</p>
+                                                    <p class="font-editorial text-xl">Marco Chen</p>
+                                                </div>
+                                                <div class="product-actions flex space-x-2 mt-4">
+                                                    <button class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                        Quick View
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <h3 class="font-editorial text-lg mb-1 product-title">Structured Blazer</h3>
+                                            <div class="flex justify-between mb-2">
+                                                <span class="text-sm text-gray-600 fashion-caption">Modern Accessories</span>
+                                                <div class="flex items-center text-fashion-gold text-sm">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Price Information -->
+                                            <div class="mt-3 space-y-1 border-t border-gray-100 pt-3">
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">MSRP:</span>
+                                                    <span class="price-msrp">$249.00</span>
+                                                </div>
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">Wholesale:</span>
+                                                    <span class="price-wholesale">$124.50</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex space-x-2 mt-4">
+                                                <button class="flex-1 fashion-button bg-accent text-white py-2">
+                                                    Connect
+                                                </button>
+                                                <button class="bg-gray-100 w-10 flex items-center justify-center" title="View details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Product Card 3 -->
+                                    <div class="fashion-card product-card group stagger-item stagger-item-3">
+                                        <div class="relative overflow-hidden">
+                                            <img src="../assets/images/products/jeans.jpg" alt="Sustainable Denim" class="w-full h-96 object-cover product-image">
+                                            <div class="badge-sale">Low Stock</div>
+                                            <button class="absolute top-2 right-2 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-accent z-10" title="Add to favorites">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                            <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                                <div class="text-white">
+                                                    <p class="font-editorial text-sm uppercase tracking-widest mb-1">Eco Collection</p>
+                                                    <p class="font-editorial text-xl">Sophie Brown</p>
+                                                </div>
+                                                <div class="product-actions flex space-x-2 mt-4">
+                                                    <button class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                        Quick View
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <h3 class="font-editorial text-lg mb-1 product-title">Sustainable Denim Jeans</h3>
+                                            <div class="flex justify-between mb-2">
+                                                <span class="text-sm text-gray-600 fashion-caption">Eco Denim Specialist</span>
+                                                <div class="flex items-center text-fashion-gold text-sm">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Price Information -->
+                                            <div class="mt-3 space-y-1 border-t border-gray-100 pt-3">
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">MSRP:</span>
+                                                    <span class="price-msrp">$159.00</span>
+                                                </div>
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">Wholesale:</span>
+                                                    <span class="price-wholesale">$79.50</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex space-x-2 mt-4">
+                                                <button class="flex-1 fashion-button bg-accent text-white py-2">
+                                                    Connect
+                                                </button>
+                                                <button class="bg-gray-100 w-10 flex items-center justify-center" title="View details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Product Card 4 -->
+                                    <div class="fashion-card product-card group stagger-item stagger-item-4">
+                                        <div class="relative overflow-hidden">
+                                            <img src="../assets/images/products/tshirt.jpg" alt="Graphic Tee" class="w-full h-96 object-cover product-image">
+                                            <div class="badge-sold-out">Sold Out</div>
+                                            <button class="absolute top-2 right-2 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-accent z-10" title="Add to favorites">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                            <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                                <div class="text-white">
+                                                    <p class="font-editorial text-sm uppercase tracking-widest mb-1">Urban Collection</p>
+                                                    <p class="font-editorial text-xl">Liam Johnson</p>
+                                                </div>
+                                                <div class="product-actions flex space-x-2 mt-4">
+                                                    <button class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                        Quick View
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <h3 class="font-editorial text-lg mb-1 product-title">Urban Graphic Tee</h3>
+                                            <div class="flex justify-between mb-2">
+                                                <span class="text-sm text-gray-600 fashion-caption">Urban Streetwear</span>
+                                                <div class="flex items-center text-fashion-gold text-sm">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Price Information -->
+                                            <div class="mt-3 space-y-1 border-t border-gray-100 pt-3">
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">MSRP:</span>
+                                                    <span class="price-msrp">$59.00</span>
+                                                </div>
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">Wholesale:</span>
+                                                    <span class="price-wholesale">$29.50</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex space-x-2 mt-4">
+                                                <button class="flex-1 fashion-button bg-accent text-white py-2">
+                                                    Connect
+                                                </button>
+                                                <button class="bg-gray-100 w-10 flex items-center justify-center" title="View details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Popular Products -->
+                            <div class="mb-12 animate-fade-in-up">
+                                <div class="flex items-center justify-between mb-6">
+                                    <h2 class="font-editorial text-2xl">Popular Products</h2>
+                                    <a href="#" class="text-accent text-sm letter-spacing-wide hover:underline">View All Popular</a>
+                                </div>
+                                
+                                <div class="product-grid">
+                                    <!-- Product Card 1 -->
+                                    <div class="fashion-card product-card group stagger-item stagger-item-1">
+                                        <div class="relative overflow-hidden">
+                                            <a href="details/product-detail.html">
+                                                <img src="../assets/images/products/dress.jpg" alt="Minimal Shift Dress" class="w-full h-96 object-cover product-image">
+                                            </a>
+                                            <div class="badge-new">New</div>
+                                            <button class="absolute top-2 right-2 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-accent z-10" title="Add to favorites">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                            <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                                <div class="text-white">
+                                                    <p class="font-editorial text-sm uppercase tracking-widest mb-1">Sustainable Minimalism</p>
+                                                    <p class="font-editorial text-xl">Emma Wilson</p>
+                                                </div>
+                                                <div class="product-actions flex space-x-2 mt-4">
+                                                    <a href="details/product-detail.html" class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                        Quick View
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <a href="details/product-detail.html">
+                                                <h3 class="font-editorial text-lg mb-1 product-title">Minimal Shift Dress</h3>
+                                            </a>
+                                            <div class="flex justify-between mb-2">
+                                                <span class="text-sm text-gray-600 fashion-caption">Sustainable Minimalism</span>
+                                                <div class="flex items-center text-fashion-gold text-sm">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Price Information -->
+                                            <div class="mt-3 space-y-1 border-t border-gray-100 pt-3">
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">MSRP:</span>
+                                                    <span class="price-msrp">$189.00</span>
+                                                </div>
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">Wholesale:</span>
+                                                    <span class="price-wholesale">$94.50</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex space-x-2 mt-4">
+                                                <button class="flex-1 fashion-button bg-accent text-white py-2">
+                                                    Connect
+                                                </button>
+                                                <a href="details/product-detail.html" class="bg-gray-100 w-10 flex items-center justify-center" title="View details">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Product Card 2 -->
+                                    <div class="fashion-card product-card group stagger-item stagger-item-2">
+                                        <div class="relative overflow-hidden">
+                                            <img src="../assets/images/products/blazer.jpg" alt="Structured Blazer" class="w-full h-96 object-cover product-image">
+                                            <button class="absolute top-2 right-2 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-accent z-10" title="Add to favorites">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                            <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                                <div class="text-white">
+                                                    <p class="font-editorial text-sm uppercase tracking-widest mb-1">Modern Accessories</p>
+                                                    <p class="font-editorial text-xl">Marcus Chen</p>
+                                                </div>
+                                                <div class="product-actions flex space-x-2 mt-4">
+                                                    <button class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                        Quick View
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <h3 class="font-editorial text-lg mb-1 product-title">Structured Blazer</h3>
+                                            <div class="flex justify-between mb-2">
+                                                <span class="text-sm text-gray-600 fashion-caption">Modern Accessories</span>
+                                                <div class="flex items-center text-fashion-gold text-sm">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Price Information -->
+                                            <div class="mt-3 space-y-1 border-t border-gray-100 pt-3">
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">MSRP:</span>
+                                                    <span class="price-msrp">$249.00</span>
+                                                </div>
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">Wholesale:</span>
+                                                    <span class="price-wholesale">$124.50</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex space-x-2 mt-4">
+                                                <button class="flex-1 fashion-button bg-accent text-white py-2">
+                                                    Connect
+                                                </button>
+                                                <button class="bg-gray-100 w-10 flex items-center justify-center" title="View details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Product Card 3 -->
+                                    <div class="fashion-card product-card group stagger-item stagger-item-3">
+                                        <div class="relative overflow-hidden">
+                                            <img src="../assets/images/products/jeans.jpg" alt="Sustainable Denim" class="w-full h-96 object-cover product-image">
+                                            <div class="badge-sale">Low Stock</div>
+                                            <button class="absolute top-2 right-2 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-accent z-10" title="Add to favorites">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                            <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                                <div class="text-white">
+                                                    <p class="font-editorial text-sm uppercase tracking-widest mb-1">Eco Collection</p>
+                                                    <p class="font-editorial text-xl">Sophie Brown</p>
+                                                </div>
+                                                <div class="product-actions flex space-x-2 mt-4">
+                                                    <button class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                        Quick View
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4">
+                                            <h3 class="font-editorial text-lg mb-1 product-title">Sustainable Denim Jeans</h3>
+                                            <div class="flex justify-between mb-2">
+                                                <span class="text-sm text-gray-600 fashion-caption">Eco Denim Specialist</span>
+                                                <div class="flex items-center text-fashion-gold text-sm">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Price Information -->
+                                            <div class="mt-3 space-y-1 border-t border-gray-100 pt-3">
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">MSRP:</span>
+                                                    <span class="price-msrp">$159.00</span>
+                                                </div>
+                                                <div class="flex justify-between text-sm">
+                                                    <span class="text-gray-600 letter-spacing-wide">Wholesale:</span>
+                                                    <span class="price-wholesale">$79.50</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex space-x-2 mt-4">
+                                                <button class="flex-1 fashion-button bg-accent text-white py-2">
+                                                    Connect
+                                                </button>
+                                                <button class="bg-gray-100 w-10 flex items-center justify-center" title="View details">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Designer Spotlight -->
+                            <div class="mt-16 mb-12 animate-fade-in">
+                                <div class="section-header">
+                                    <h2 class="font-editorial text-2xl">Featured Designer: Emma Wilson</h2>
+                                </div>
+                                <div class="bg-white border-editorial p-6 mt-6">
+                                    <div class="flex flex-col md:flex-row gap-8">
+                                        <div class="md:w-1/3">
+                                            <div class="editorial-image">
+                                                <img src="../assets/images/designers/designer-1.jpg" alt="Emma Wilson" class="w-full h-auto">
+                                            </div>
+                                        </div>
+                                        <div class="md:w-2/3">
+                                            <p class="font-editorial text-lg mb-4">Emma Wilson creates pieces that combine sustainable practices with timeless silhouettes. Her minimalist approach redefines wardrobe essentials through innovative use of eco-friendly materials.</p>
+                                            <div class="designer-quote mb-6">
+                                                Fashion should not only make you look good but also feel good about its impact on our planet.
+                                            </div>
+                                            <div class="flex justify-end">
+                                                <a href="designers.html" class="fashion-button bg-fashion-black text-white py-2">View Designer Profile</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Collection Highlight -->
+                            <div class="mb-12 animate-fade-in">
+                                <div class="relative border-editorial overflow-hidden h-72">
+                                    <img src="../assets/images/banners/main-banner.jpg" alt="Fashion Collection Highlight" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                                        <div class="p-8 text-white">
+                                            <h2 class="font-editorial text-3xl mb-3">Summer 2023 Collection</h2>
+                                            <p class="max-w-2xl mb-4">Discover our curated selection of lightweight, breathable pieces perfect for the season.</p>
+                                            <button class="fashion-button bg-white text-fashion-black py-2 px-6">Explore Collection</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Sustainability Focus -->
+                            <div class="mb-12 animate-fade-in">
+                                <div class="bg-fashion-beige p-8 border-editorial">
+                                    <div class="max-w-4xl mx-auto">
+                                        <h2 class="font-editorial text-2xl mb-4 text-center">Our Commitment to Sustainability</h2>
+                                        <p class="text-center mb-6">We prioritize designers who use eco-friendly materials and ethical production methods. Learn more about our sustainability standards and the impact of your purchase.</p>
+                                        <div class="flex justify-center">
+                                            <button class="fashion-button bg-fashion-black text-white py-2 px-6">Read More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Pagination -->
+                            <div class="mt-10 flex justify-center">
+                                <nav class="flex items-center space-x-1">
+                                    <button class="fashion-button border border-gray-300 hover:bg-gray-50 px-2 py-1 text-gray-600" title="Previous page">
+                                        <i class="fas fa-chevron-left text-xs"></i>
+                                    </button>
+                                    <button class="fashion-button border border-accent bg-accent text-white px-3 py-1" title="Page 1">1</button>
+                                    <button class="fashion-button border border-gray-300 hover:bg-gray-50 px-3 py-1 text-gray-600" title="Page 2">2</button>
+                                    <button class="fashion-button border border-gray-300 hover:bg-gray-50 px-3 py-1 text-gray-600" title="Page 3">3</button>
+                                    <button class="fashion-button border border-gray-300 hover:bg-gray-50 px-2 py-1 text-gray-600" title="Next page">
+                                        <i class="fas fa-chevron-right text-xs"></i>
+                                    </button>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Filter Dropdown JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all filter toggle buttons
+            const filterToggles = document.querySelectorAll('.filter-toggle');
+            
+            // Add click event listener to each toggle button
+            filterToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent event from bubbling to document
+                    
+                    // Get the parent dropdown and its menu
+                    const dropdown = this.closest('.filter-dropdown');
+                    const menu = dropdown.querySelector('.filter-menu');
+                    
+                    // Close all other open menus first
+                    document.querySelectorAll('.filter-menu').forEach(otherMenu => {
+                        if (otherMenu !== menu && !otherMenu.classList.contains('hidden')) {
+                            otherMenu.classList.add('hidden');
+                            otherMenu.closest('.filter-dropdown').querySelector('.filter-toggle').setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                    
+                    // Toggle this menu with forced display
+                    if (menu.classList.contains('hidden')) {
+                        menu.classList.remove('hidden');
+                        menu.style.display = 'block'; // Force display
+                    } else {
+                        menu.classList.add('hidden');
+                        menu.style.display = 'none';
+                    }
+                    
+                    // Update aria-expanded attribute
+                    const isExpanded = !menu.classList.contains('hidden');
+                    this.setAttribute('aria-expanded', isExpanded.toString());
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.filter-dropdown')) {
+                    document.querySelectorAll('.filter-menu').forEach(menu => {
+                        menu.classList.add('hidden');
+                        menu.style.display = 'none'; // Ensure it's hidden
+                        const toggle = menu.closest('.filter-dropdown').querySelector('.filter-toggle');
+                        if (toggle) {
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
+            });
+            
+            // Initialize aria-expanded attributes
+            filterToggles.forEach(toggle => {
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookLab - Trending</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2d3748',
+                        secondary: '#4a5568',
+                        accent: '#f56565',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'SF Pro Text', 'sans-serif'],
+                        heading: ['Montserrat', 'SF Pro Display', 'sans-serif'],
+                        editorial: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-fashion-cream bg-fashion-pattern">
+    <div class="flex h-screen">
+        <!-- Left Sidebar Navigation -->
+        <div class="w-56 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <a href="../index.html" class="flex items-center px-6 py-3 border-b border-gray-200">
+                <span class="text-xl font-semibold"><span class="text-accent">Look</span>Lab</span>
+            </a>
+            
+            <!-- User Profile Short -->
+            <div class="flex items-center px-6 py-3 border-b border-gray-200">
+                <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                <div class="ml-3">
+                    <div class="text-sm font-medium">Alex Morgan</div>
+                    <div class="text-xs text-gray-500">Boutique Manager</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex-1 py-4">
+                <a href="../index.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-home w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                
+                <!-- Discover with submenu -->
+                <div>
+                    <button class="w-full flex items-center justify-between px-6 py-2 text-accent hover:bg-gray-100 focus:outline-none cursor-pointer">
+                        <div class="flex items-center">
+                            <i class="fas fa-compass w-5"></i>
+                            <span class="ml-3">Discover</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs transform rotate-180"></i>
+                    </button>
+                    <div class="pl-14">
+                        <a href="designers.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Designers
+                        </a>
+                        <a href="products.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Products
+                        </a>
+                        <a href="trending.html" class="block py-2 text-sm text-accent font-medium">
+                            Trending
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="inventory.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-boxes-stacked w-5"></i>
+                    <span class="ml-3">Inventory</span>
+                </a>
+                
+                <a href="messages.html" class="flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-comments w-5"></i>
+                        <span class="ml-3">Messages</span>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                </a>
+                
+                <a href="aiassistant.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-robot w-5"></i>
+                    <span class="ml-3">AI Assistant</span>
+                </a>
+                
+                <a href="profile.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-user w-5"></i>
+                    <span class="ml-3">Profile</span>
+                </a>
+                
+                <a href="settings.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100 mt-auto">
+                    <i class="fas fa-cog w-5"></i>
+                    <span class="ml-3">Settings</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <!-- Search Bar -->
+                    <div class="relative w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" placeholder="Search for designers, products, or trends..." 
+                               class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                    </div>
+                    
+                    <!-- Right Side Actions -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-900 relative" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="flex items-center">
+                            <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                            <span class="ml-2">Alex Morgan</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto p-6 discover-page">
+                <div class="max-w-7xl mx-auto">
+                    <h1 class="font-editorial text-4xl mb-3 animate-fade-in">Trending</h1>
+                    <p class="font-editorial text-gray-600 italic mb-6 max-w-3xl animate-fade-in">Stay ahead of the curve with our analysis of emerging fashion trends and movements shaping the industry.</p>
+                    
+                    <!-- Secondary navigation for Discover section -->
+                    <div class="discover-sub-nav mb-8 animate-fade-in">
+                        <div class="flex">
+                            <a href="designers.html" class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-accent">
+                                Designers
+                            </a>
+                            <a href="products.html" class="flex-1 py-2 px-4 text-center text-gray-600 hover:text-accent">
+                                Products
+                            </a>
+                            <a href="trending.html" class="flex-1 py-2 px-4 text-center text-accent font-medium active">
+                                Trending
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Trend Stats Overview -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 animate-fade-in">
+                        <div class="bg-white border-editorial p-6 hover-lift">
+                            <p class="font-editorial text-3xl text-accent mb-1">+28%</p>
+                            <p class="text-sm letter-spacing-wide uppercase">Sustainable Materials</p>
+                        </div>
+                        <div class="bg-white border-editorial p-6 hover-lift">
+                            <p class="font-editorial text-3xl text-accent mb-1">+17%</p>
+                            <p class="text-sm letter-spacing-wide uppercase">Oversized Silhouettes</p>
+                        </div>
+                        <div class="bg-white border-editorial p-6 hover-lift">
+                            <p class="font-editorial text-3xl text-accent mb-1">+22%</p>
+                            <p class="text-sm letter-spacing-wide uppercase">Digital Prints</p>
+                        </div>
+                        <div class="bg-white border-editorial p-6 hover-lift">
+                            <p class="font-editorial text-3xl text-accent mb-1">+15%</p>
+                            <p class="text-sm letter-spacing-wide uppercase">Pastel Neutrals</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabs for Different Trend Categories -->
+                    <div class="mb-10 animate-fade-in">
+                        <div class="border-b border-editorial">
+                            <nav class="flex -mb-px">
+                                <button class="px-4 py-3 border-b-2 border-accent text-accent font-medium letter-spacing-wide text-sm uppercase">Materials</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700 letter-spacing-wide text-sm uppercase">Styles</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700 letter-spacing-wide text-sm uppercase">Colors</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700 letter-spacing-wide text-sm uppercase">Silhouettes</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700 letter-spacing-wide text-sm uppercase">Accessories</button>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <!-- Main Trend Content -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Trend List - Takes 2/3 of the space on large screens -->
+                        <div class="lg:col-span-2">
+                            <div class="bg-white border-editorial mb-8 animate-fade-in-up stagger-item-1">
+                                <div class="p-6">
+                                    <div class="flex justify-between items-center mb-6">
+                                        <h2 class="font-editorial text-2xl">Top Materials Trends</h2>
+                                        <div class="text-sm text-gray-600 letter-spacing-wide uppercase">
+                                            <i class="far fa-calendar mr-1"></i> Fall/Winter 2023-24
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Trend Items -->
+                                    <div class="space-y-8">
+                                        <!-- Trend Item 1 -->
+                                        <a href="details/trend-detail.html" class="block border-editorial hover-lift">
+                                            <div class="flex flex-col md:flex-row">
+                                                <div class="md:w-1/5 flex-shrink-0">
+                                                    <div class="img-zoom-container">
+                                                        <img src="../assets/images/products/jeans.jpg" alt="Sustainable Denim" class="w-full h-40 md:h-full object-cover img-zoom">
+                                                    </div>
+                                                </div>
+                                                <div class="p-6 md:w-4/5">
+                                                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
+                                                        <h3 class="font-editorial text-xl mb-2 md:mb-0">Sustainable Denim</h3>
+                                                        <span class="trend-tag">+28%</span>
+                                                    </div>
+                                                    <p class="text-gray-600 text-sm mb-4">Eco-friendly processing with reduced water usage and natural dyes is revolutionizing denim production. Designer Sophie Brown leads this movement with her innovative techniques.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Recycled</span>
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Low Impact</span>
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Water Conservation</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        
+                                        <!-- Trend Item 2 -->
+                                        <div class="border-editorial hover-lift">
+                                            <div class="flex flex-col md:flex-row">
+                                                <div class="md:w-1/5 flex-shrink-0">
+                                                    <div class="img-zoom-container">
+                                                        <img src="../assets/images/products/blazer.jpg" alt="Recycled Polyester" class="w-full h-40 md:h-full object-cover img-zoom">
+                                                    </div>
+                                                </div>
+                                                <div class="p-6 md:w-4/5">
+                                                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
+                                                        <h3 class="font-editorial text-xl mb-2 md:mb-0">Recycled Polyester</h3>
+                                                        <span class="trend-tag">+24%</span>
+                                                    </div>
+                                                    <p class="text-gray-600 text-sm mb-4">Derived from post-consumer plastic bottles, recycled polyester is increasingly used in athletic and outerwear. Marco Chen's latest collection showcases this material's versatility.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Recycled Plastic</span>
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Performance</span>
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Activewear</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Trend Item 3 -->
+                                        <div class="border-editorial hover-lift">
+                                            <div class="flex flex-col md:flex-row">
+                                                <div class="md:w-1/5 flex-shrink-0">
+                                                    <div class="img-zoom-container">
+                                                        <img src="../assets/images/products/dress.jpg" alt="Organic Cotton" class="w-full h-40 md:h-full object-cover img-zoom">
+                                                    </div>
+                                                </div>
+                                                <div class="p-6 md:w-4/5">
+                                                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
+                                                        <h3 class="font-editorial text-xl mb-2 md:mb-0">Organic Cotton</h3>
+                                                        <span class="trend-tag">+21%</span>
+                                                    </div>
+                                                    <p class="text-gray-600 text-sm mb-4">Pesticide-free cotton grown using methods that have a lower impact on the environment. Emma Wilson's minimalist shift dresses exemplify its elegant simplicity.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Sustainable</span>
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Biodegradable</span>
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Hypoallergenic</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Trend Item 4 -->
+                                        <div class="border-editorial hover-lift">
+                                            <div class="flex flex-col md:flex-row">
+                                                <div class="md:w-1/5 flex-shrink-0">
+                                                    <div class="img-zoom-container">
+                                                        <img src="../assets/images/products/tshirt.jpg" alt="Tencel/Lyocell" class="w-full h-40 md:h-full object-cover img-zoom">
+                                                    </div>
+                                                </div>
+                                                <div class="p-6 md:w-4/5">
+                                                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
+                                                        <h3 class="font-editorial text-xl mb-2 md:mb-0">Tencel/Lyocell</h3>
+                                                        <span class="trend-tag">+19%</span>
+                                                    </div>
+                                                    <p class="text-gray-600 text-sm mb-4">Made from sustainably sourced wood pulp using a closed-loop process that recovers and reuses solvents. Liam Johnson's urban collection demonstrates its versatility.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Biodegradable</span>
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Silky Texture</span>
+                                                        <span class="bg-blue-50 text-blue-700 text-xs py-1 px-3 border border-blue-100">Breathable</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Designer Spotlight Section -->
+                            <div class="bg-white border-editorial p-6 animate-fade-in-up stagger-item-2">
+                                <div class="section-header">
+                                    <h3 class="font-editorial text-2xl">Designer Spotlight: Material Innovators</h3>
+                                </div>
+                                
+                                <!-- Designer grid section -->
+                                <div class="mt-6">
+                                    <div class="designer-quote mb-6">
+                                        The future of fashion lies in reimagining our relationship with materials—not just what they look like, but how they're made and what happens after we're done with them.
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                                        <div class="border-editorial p-4 hover-lift">
+                                            <div class="flex items-center">
+                                                <img src="../assets/images/designers/designer-3.jpg" alt="Sophie Brown" class="w-12 h-12 rounded-full">
+                                                <div class="ml-4">
+                                                    <h4 class="font-editorial text-lg">Sophie Brown</h4>
+                                                    <p class="text-sm text-gray-600">Eco Denim Specialist</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="border-editorial p-4 hover-lift">
+                                            <div class="flex items-center">
+                                                <img src="../assets/images/designers/designer-1.jpg" alt="Emma Wilson" class="w-12 h-12 rounded-full">
+                                                <div class="ml-4">
+                                                    <h4 class="font-editorial text-lg">Emma Wilson</h4>
+                                                    <p class="text-sm text-gray-600">Sustainable Minimalism</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Trends Sidebar - Takes 1/3 of the space on large screens -->
+                        <div class="lg:col-span-1">
+                            <!-- Trend Analysis -->
+                            <div class="bg-white border-editorial p-6 mb-8 animate-fade-in-up stagger-item-3">
+                                <h3 class="font-editorial text-xl mb-4">Trend Analysis</h3>
+                                
+                                <p class="text-sm mb-4">
+                                    Our data indicates a growing consumer preference for materials and manufacturing processes that prioritize environmental impact reduction.
+                                </p>
+                                
+                                <div class="space-y-4 mt-6">
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span>Sustainable Materials</span>
+                                            <span class="text-xs font-medium text-green-500">+24%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-100 h-1.5">
+                                            <div class="bg-accent h-1.5" style="width: 68%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span>Oversized Silhouettes</span>
+                                            <span class="text-xs font-medium text-green-500">+19%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-100 h-1.5">
+                                            <div class="bg-accent h-1.5" style="width: 58%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span>Digital Prints</span>
+                                            <span class="text-xs font-medium text-green-500">+15%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-100 h-1.5">
+                                            <div class="bg-accent h-1.5" style="width: 47%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span>Pastel Neutrals</span>
+                                            <span class="text-xs font-medium text-green-500">+12%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-100 h-1.5">
+                                            <div class="bg-accent h-1.5" style="width: 38%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Regional Adoption -->
+                            <div class="bg-white border-editorial p-6 mb-8 animate-fade-in-up stagger-item-4">
+                                <h3 class="font-editorial text-xl mb-4">Regional Adoption</h3>
+                                
+                                <div class="space-y-6">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="font-medium">North America</p>
+                                            <p class="text-sm text-gray-600">Focus on eco-marketing</p>
+                                        </div>
+                                        <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center border border-green-100">
+                                            <p class="font-medium text-green-600">32%</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="font-medium">Europe</p>
+                                            <p class="text-sm text-gray-600">Regulatory-driven</p>
+                                        </div>
+                                        <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center border border-blue-100">
+                                            <p class="font-medium text-blue-600">41%</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="font-medium">Asia Pacific</p>
+                                            <p class="text-sm text-gray-600">Manufacturing innovation</p>
+                                        </div>
+                                        <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center border border-purple-100">
+                                            <p class="font-medium text-purple-600">28%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Trend Forecast -->
+                            <div class="bg-white border-editorial p-6 animate-fade-in-up stagger-item-5">
+                                <h3 class="font-editorial text-xl mb-4">Trend Forecast</h3>
+                                
+                                <div class="prose text-sm text-gray-600">
+                                    <p class="mb-4">We anticipate continued growth in sustainable materials with an emphasis on transparency in production methods. Key emerging materials include:</p>
+                                    
+                                    <ul class="list-disc pl-5 mb-4 space-y-2">
+                                        <li>Mycelium leather alternatives</li>
+                                        <li>Seaweed-based textiles</li>
+                                        <li>Recycled cotton blends</li>
+                                        <li>Biodegradable synthetics</li>
+                                    </ul>
+                                    
+                                    <p>Retailers who adopt these materials early are positioned to meet evolving consumer preferences and regulatory requirements.</p>
+                                </div>
+                                
+                                <div class="text-center mt-6">
+                                    <button class="fashion-button bg-fashion-black text-white py-2 px-4">
+                                        Download Full Report
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

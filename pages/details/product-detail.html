@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookLab - Product Detail</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/tailwind.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2d3748',
+                        secondary: '#4a5568',
+                        accent: '#f56565',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'SF Pro Text', 'sans-serif'],
+                        heading: ['Montserrat', 'SF Pro Display', 'sans-serif'],
+                        editorial: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-fashion-cream bg-fashion-pattern">
+    <div class="flex h-screen">
+        <!-- Left Sidebar Navigation -->
+        <div class="w-56 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <a href="../../index.html" class="flex items-center px-6 py-3 border-b border-gray-200">
+                <span class="text-xl font-semibold"><span class="text-accent">Look</span>Lab</span>
+            </a>
+            
+            <!-- User Profile Short -->
+            <div class="flex items-center px-6 py-3 border-b border-gray-200">
+                <img src="../../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                <div class="ml-3">
+                    <div class="text-sm font-medium">Alex Morgan</div>
+                    <div class="text-xs text-gray-500">Boutique Manager</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex-1 py-4">
+                <a href="../../index.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-home w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                
+                <!-- Discover with submenu -->
+                <div>
+                    <button class="w-full flex items-center justify-between px-6 py-2 text-accent hover:bg-gray-100 focus:outline-none cursor-pointer">
+                        <div class="flex items-center">
+                            <i class="fas fa-compass w-5"></i>
+                            <span class="ml-3">Discover</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs transform rotate-180"></i>
+                    </button>
+                    <div class="pl-14">
+                        <a href="../designers.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Designers
+                        </a>
+                        <a href="../products.html" class="block py-2 text-sm text-accent font-medium">
+                            Products
+                        </a>
+                        <a href="../trending.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Trending
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="../inventory.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-boxes-stacked w-5"></i>
+                    <span class="ml-3">Inventory</span>
+                </a>
+                
+                <a href="../messages.html" class="flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-comments w-5"></i>
+                        <span class="ml-3">Messages</span>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                </a>
+                
+                <a href="../aiassistant.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-robot w-5"></i>
+                    <span class="ml-3">AI Assistant</span>
+                </a>
+                
+                <a href="../profile.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-user w-5"></i>
+                    <span class="ml-3">Profile</span>
+                </a>
+                
+                <a href="../settings.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100 mt-auto">
+                    <i class="fas fa-cog w-5"></i>
+                    <span class="ml-3">Settings</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <!-- Search Bar -->
+                    <div class="relative w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" placeholder="Search for designers, products, or trends..." 
+                               class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                    </div>
+                    
+                    <!-- Right Side Actions -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-900 relative" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="flex items-center">
+                            <img src="../../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                            <span class="ml-2">Alex Morgan</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto p-6 discover-page">
+                <div class="max-w-7xl mx-auto">
+                    <!-- Breadcrumb Navigation -->
+                    <nav class="text-sm mb-6 animate-fade-in">
+                        <ol class="list-none p-0 flex items-center space-x-2">
+                            <li class="flex items-center">
+                                <a href="../products.html" class="text-gray-500 hover:text-accent">Products</a>
+                                <span class="mx-2 text-gray-400">/</span>
+                            </li>
+                            <li class="text-accent font-medium">Minimal Shift Dress</li>
+                        </ol>
+                    </nav>
+                    
+                    <!-- Product Detail Section -->
+                    <div class="mb-12 animate-fade-in">
+                        <div class="bg-white border-editorial">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                                <!-- Product Images -->
+                                <div class="md:col-span-1 p-4">
+                                    <div class="mb-4">
+                                        <div class="relative">
+                                            <img src="../../assets/images/products/dress.jpg" alt="Minimal Shift Dress" class="w-full h-auto border-editorial">
+                                            <div class="badge-new absolute top-4 left-4">New</div>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-4 gap-2">
+                                        <div class="border border-accent">
+                                            <img src="../../assets/images/products/dress.jpg" alt="Thumbnail 1" class="w-full h-24 object-cover">
+                                        </div>
+                                        <div class="border border-gray-200 hover:border-accent cursor-pointer">
+                                            <img src="../../assets/images/products/dress-alt-1.jpg" alt="Thumbnail 2" class="w-full h-24 object-cover">
+                                        </div>
+                                        <div class="border border-gray-200 hover:border-accent cursor-pointer">
+                                            <img src="../../assets/images/products/dress-alt-2.jpg" alt="Thumbnail 3" class="w-full h-24 object-cover">
+                                        </div>
+                                        <div class="border border-gray-200 hover:border-accent cursor-pointer">
+                                            <img src="../../assets/images/products/dress-alt-3.jpg" alt="Thumbnail 4" class="w-full h-24 object-cover">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Product Info -->
+                                <div class="md:col-span-1 p-8">
+                                    <div class="mb-2">
+                                        <a href="designer-profile.html" class="text-sm text-accent letter-spacing-wide uppercase hover:underline">Emma Wilson</a>
+                                    </div>
+                                    <h1 class="font-editorial text-3xl mb-2">Minimal Shift Dress</h1>
+                                    <div class="flex items-center mb-4">
+                                        <div class="flex text-fashion-gold text-sm mr-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="text-sm text-gray-500">(12 reviews)</span>
+                                    </div>
+                                    
+                                    <div class="flex flex-col space-y-1 mb-6">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-gray-600 letter-spacing-wide">MSRP:</span>
+                                            <span class="text-xl font-medium">$189.00</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-gray-600 letter-spacing-wide">Wholesale:</span>
+                                            <span class="text-lg">$94.50</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm text-gray-600 letter-spacing-wide">MOQ:</span>
+                                            <span>6 pieces</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-6">
+                                        <h2 class="text-sm letter-spacing-wide uppercase text-gray-600 mb-2">Description</h2>
+                                        <p class="text-gray-700 mb-4">
+                                            A minimalist approach to everyday elegance. This shift dress features clean lines and a relaxed silhouette crafted from sustainable linen blend fabric. Perfect for layering or wearing on its own.
+                                        </p>
+                                        <p class="text-gray-700">
+                                            Each dress is made to order in Emma Wilson's Los Angeles studio using zero-waste pattern cutting techniques, minimizing fabric waste and environmental impact.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="mb-6">
+                                        <h2 class="text-sm letter-spacing-wide uppercase text-gray-600 mb-2">Details</h2>
+                                        <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+                                            <li>70% Organic Linen, 30% Recycled Cotton</li>
+                                            <li>Relaxed, straight cut</li>
+                                            <li>Side slits for ease of movement</li>
+                                            <li>Natural coconut shell buttons</li>
+                                            <li>Sustainably dyed using low-impact pigments</li>
+                                            <li>Available in sizes XS-XL</li>
+                                            <li>Made in Los Angeles, USA</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mb-6">
+                                        <h2 class="text-sm letter-spacing-wide uppercase text-gray-600 mb-2">Available Colors</h2>
+                                        <div class="flex space-x-2">
+                                            <button class="w-8 h-8 bg-fashion-cream border-2 border-accent rounded-full" title="Natural"></button>
+                                            <button class="w-8 h-8 bg-gray-800 border border-gray-200 rounded-full" title="Charcoal"></button>
+                                            <button class="w-8 h-8 bg-blue-700 border border-gray-200 rounded-full" title="Indigo"></button>
+                                            <button class="w-8 h-8 bg-amber-800 border border-gray-200 rounded-full" title="Terracotta"></button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-8">
+                                        <h2 class="text-sm letter-spacing-wide uppercase text-gray-600 mb-2">Delivery</h2>
+                                        <p class="text-sm text-gray-700">
+                                            2-3 weeks lead time for production. Ships worldwide from Los Angeles.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="flex space-x-4">
+                                        <button class="fashion-button bg-accent text-white py-3 px-8 flex-1">
+                                            Connect with Designer
+                                        </button>
+                                        <button class="fashion-button bg-white border border-gray-300 text-gray-700 py-3 px-4">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        <button class="fashion-button bg-white border border-gray-300 text-gray-700 py-3 px-4">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Tabs -->
+                    <div class="mb-10 animate-fade-in">
+                        <div class="border-b border-editorial">
+                            <nav class="flex -mb-px">
+                                <button class="px-4 py-3 border-b-2 border-accent text-accent font-medium">Sustainability</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Size Guide</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Care Instructions</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Reviews</button>
+                                <button class="px-4 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Shipping</button>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <!-- Sustainability Section -->
+                    <div class="mb-12 animate-fade-in-up">
+                        <div class="bg-white border-editorial p-6">
+                            <h2 class="font-editorial text-2xl mb-4">Sustainability Impact</h2>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                                <div class="border-editorial p-4 text-center">
+                                    <div class="text-accent text-3xl mb-2">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <h3 class="font-medium mb-2">Water Conservation</h3>
+                                    <p class="text-sm text-gray-600">Uses 91% less water compared to conventional cotton garments.</p>
+                                </div>
+                                
+                                <div class="border-editorial p-4 text-center">
+                                    <div class="text-accent text-3xl mb-2">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                    <h3 class="font-medium mb-2">Natural Materials</h3>
+                                    <p class="text-sm text-gray-600">Made from certified organic linen and recycled cotton blend.</p>
+                                </div>
+                                
+                                <div class="border-editorial p-4 text-center">
+                                    <div class="text-accent text-3xl mb-2">
+                                        <i class="fas fa-recycle"></i>
+                                    </div>
+                                    <h3 class="font-medium mb-2">Zero Waste Design</h3>
+                                    <p class="text-sm text-gray-600">Pattern cutting techniques eliminate fabric waste during production.</p>
+                                </div>
+                            </div>
+                            
+                            <p class="text-gray-700 mb-4">
+                                This dress is part of Emma Wilson's commitment to environmentally conscious fashion. The fabric is woven by a family-owned mill in Portugal that uses renewable energy, and the garment is constructed in her Los Angeles studio under fair labor practices.
+                            </p>
+                            
+                            <p class="text-gray-700">
+                                The natural dyes are derived from plant sources, reducing chemical runoff and water pollution. Each dress is carbon-offset through Emma's partnership with environmental initiatives that plant trees in deforested areas.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Complete the Look -->
+                    <div class="mb-12 animate-fade-in-up">
+                        <div class="section-header mb-6">
+                            <h2 class="font-editorial text-2xl">Complete the Look</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Related Product 1 -->
+                            <div class="fashion-card product-card group stagger-item-4">
+                                <div class="relative overflow-hidden">
+                                    <img src="../../assets/images/products/tshirt.jpg" alt="Organic Cotton Tee" class="w-full h-72 object-cover product-image">
+                                    <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                        <div class="product-actions flex space-x-2 mt-4">
+                                            <button class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                Quick View
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-editorial text-lg mb-1 product-title">Organic Cotton Tee</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Emma Wilson</p>
+                                    <p class="font-medium">$59.00</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Related Product 2 -->
+                            <div class="fashion-card product-card group stagger-item-5">
+                                <div class="relative overflow-hidden">
+                                    <img src="../../assets/images/products/jeans.jpg" alt="Wide-Leg Jeans" class="w-full h-72 object-cover product-image">
+                                    <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                        <div class="product-actions flex space-x-2 mt-4">
+                                            <button class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                Quick View
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-editorial text-lg mb-1 product-title">Wide-Leg Jeans</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Sophie Brown</p>
+                                    <p class="font-medium">$158.00</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Related Product 3 -->
+                            <div class="fashion-card product-card group stagger-item-6">
+                                <div class="relative overflow-hidden">
+                                    <img src="../../assets/images/products/blazer.jpg" alt="Linen Blazer" class="w-full h-72 object-cover product-image">
+                                    <div class="absolute inset-0 product-overlay flex flex-col justify-end p-4">
+                                        <div class="product-actions flex space-x-2 mt-4">
+                                            <button class="flex-1 fashion-button bg-white text-gray-900 py-2 text-xs">
+                                                Quick View
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-editorial text-lg mb-1 product-title">Linen Blazer</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Marcus Chen</p>
+                                    <p class="font-medium">$245.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Designer Info -->
+                    <div class="mb-12 animate-fade-in">
+                        <div class="bg-white border-editorial p-6">
+                            <div class="flex flex-col md:flex-row items-center">
+                                <div class="md:w-1/4 text-center mb-4 md:mb-0">
+                                    <img src="../../assets/images/designers/designer-1.jpg" alt="Emma Wilson" class="w-32 h-32 object-cover rounded-full mx-auto border-editorial">
+                                    <h3 class="font-editorial text-lg mt-2">Emma Wilson</h3>
+                                    <p class="text-sm text-gray-600">Sustainable Minimalism</p>
+                                </div>
+                                <div class="md:w-3/4 md:pl-8">
+                                    <p class="text-gray-700 mb-4">
+                                        Emma Wilson creates pieces that combine sustainable practices with timeless silhouettes. Her minimalist approach redefines wardrobe essentials through innovative use of eco-friendly materials.
+                                    </p>
+                                    <div class="designer-quote mb-4">
+                                        Fashion should not only make you look good but also feel good about its impact on our planet.
+                                    </div>
+                                    <div class="flex justify-end">
+                                        <a href="designer-profile.html" class="fashion-button bg-fashion-black text-white py-2 px-4">View Designer Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recently Viewed -->
+                    <div class="mb-12 animate-fade-in">
+                        <div class="section-header mb-6">
+                            <h2 class="font-editorial text-2xl">Recently Viewed</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="border-editorial p-2">
+                                <img src="../../assets/images/products/blazer.jpg" alt="Structured Blazer" class="w-full h-48 object-cover mb-2">
+                                <p class="text-sm font-medium truncate">Structured Blazer</p>
+                                <p class="text-xs text-gray-500">Marcus Chen</p>
+                            </div>
+                            <div class="border-editorial p-2">
+                                <img src="../../assets/images/products/jeans.jpg" alt="Sustainable Denim" class="w-full h-48 object-cover mb-2">
+                                <p class="text-sm font-medium truncate">Sustainable Denim</p>
+                                <p class="text-xs text-gray-500">Sophie Brown</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

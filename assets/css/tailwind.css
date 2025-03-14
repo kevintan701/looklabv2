@@ -1,0 +1,222 @@
+/* LookLab Custom Tailwind Utilities */
+
+@layer utilities {
+  /* Typography Utilities */
+  .font-editorial {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  
+  .font-display {
+    font-family: 'Montserrat', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  .letter-spacing-tight {
+    letter-spacing: -0.03em;
+  }
+  
+  .letter-spacing-wide {
+    letter-spacing: 0.05em;
+  }
+  
+  /* Fashion Colors */
+  .text-fashion-beige {
+    color: #f5f0e6;
+  }
+  
+  .bg-fashion-beige {
+    background-color: #f5f0e6;
+  }
+  
+  .text-fashion-cream {
+    color: #fff9e8;
+  }
+  
+  .bg-fashion-cream {
+    background-color: #fff9e8;
+  }
+  
+  .text-fashion-black {
+    color: #111111;
+  }
+  
+  .bg-fashion-black {
+    background-color: #111111;
+  }
+  
+  .text-fashion-gold {
+    color: #daa520;
+  }
+  
+  .bg-fashion-gold {
+    background-color: #daa520;
+  }
+  
+  .text-fashion-silver {
+    color: #c0c0c0;
+  }
+  
+  .bg-fashion-silver {
+    background-color: #c0c0c0;
+  }
+  
+  /* Editorial Borders */
+  .border-editorial {
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .border-b-editorial {
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Fashion Card Styles */
+  .hover-lift {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Image Hover Effects */
+  .img-zoom-container {
+    overflow: hidden;
+  }
+  
+  .img-zoom {
+    transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .img-zoom:hover, 
+  .group:hover .img-zoom {
+    transform: scale(1.08);
+  }
+  
+  /* Text Decorations */
+  .text-underline-custom {
+    position: relative;
+  }
+  
+  .text-underline-custom::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .text-underline-custom:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Fashion Grid Layouts */
+  .fashion-grid-1 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+  }
+  
+  .fashion-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .fashion-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .fashion-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  /* Designer Card */
+  .designer-name-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .group:hover .designer-name-overlay {
+    opacity: 1;
+  }
+  
+  /* Product Card Badges */
+  .badge-new {
+    @apply bg-accent text-white text-xs px-2 py-1;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  
+  .badge-sale {
+    @apply bg-fashion-gold text-white text-xs px-2 py-1;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  
+  .badge-sold-out {
+    @apply bg-fashion-black text-white text-xs px-2 py-1;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  
+  /* Media Queries for Grid Layouts */
+  @media (max-width: 768px) {
+    .fashion-grid-2,
+    .fashion-grid-3,
+    .fashion-grid-4 {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .fashion-grid-3,
+    .fashion-grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+/* Animation Utilities */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+/* Staggered animations for list items */
+.stagger-item-1 { animation-delay: 0.1s; }
+.stagger-item-2 { animation-delay: 0.15s; }
+.stagger-item-3 { animation-delay: 0.2s; }
+.stagger-item-4 { animation-delay: 0.25s; }
+.stagger-item-5 { animation-delay: 0.3s; }

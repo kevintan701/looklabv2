@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookLab - AI Assistant</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2d3748',
+                        secondary: '#4a5568',
+                        accent: '#f56565',
+                    },
+                    fontFamily: {
+                        sans: ['SF Pro Text', 'sans-serif'],
+                        heading: ['SF Pro Display', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Left Sidebar Navigation -->
+        <div class="w-56 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <a href="../index.html" class="flex items-center px-6 py-3 border-b border-gray-200">
+                <span class="text-xl font-semibold"><span class="text-accent">Look</span>Lab</span>
+            </a>
+            
+            <!-- User Profile Short -->
+            <div class="flex items-center px-6 py-3 border-b border-gray-200">
+                <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                <div class="ml-3">
+                    <div class="text-sm font-medium">Alex Morgan</div>
+                    <div class="text-xs text-gray-500">Boutique Manager</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex-1 py-4">
+                <a href="../index.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-home w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                
+                <!-- Discover with submenu -->
+                <div>
+                    <button class="w-full flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100 focus:outline-none">
+                        <div class="flex items-center">
+                            <i class="fas fa-compass w-5"></i>
+                            <span class="ml-3">Discover</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="pl-14 hidden">
+                        <a href="discover.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Designers
+                        </a>
+                        <a href="products.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Products
+                        </a>
+                        <a href="trending.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Trending
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="inventory.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-boxes-stacked w-5"></i>
+                    <span class="ml-3">Inventory</span>
+                </a>
+                
+                <a href="messages.html" class="flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-comments w-5"></i>
+                        <span class="ml-3">Messages</span>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                </a>
+                
+                <a href="aiassistant.html" class="flex items-center px-6 py-2 text-accent hover:bg-gray-100 font-medium">
+                    <i class="fas fa-robot w-5"></i>
+                    <span class="ml-3">AI Assistant</span>
+                </a>
+                
+                <a href="profile.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-user w-5"></i>
+                    <span class="ml-3">Profile</span>
+                </a>
+                
+                <a href="settings.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100 mt-auto">
+                    <i class="fas fa-cog w-5"></i>
+                    <span class="ml-3">Settings</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <!-- Search Bar -->
+                    <div class="relative w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" placeholder="Search for trends, products, designers..." 
+                               class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                    </div>
+                    
+                    <!-- Right Side Actions -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-900 relative" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="flex items-center">
+                            <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                            <span class="ml-2">Alex Morgan</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto bg-gray-50 p-6">
+                <h1 class="text-2xl font-bold mb-6">AI Assistant</h1>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                    <!-- Chat Container - Takes 3/4 of the space on large screens -->
+                    <div class="lg:col-span-3">
+                        <div class="bg-white rounded-md shadow-sm p-0 min-h-[600px] flex flex-col">
+                            <!-- AI Chat Header -->
+                            <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3">
+                                        <i class="fas fa-robot text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">FashionAI</h3>
+                                        <p class="text-xs text-gray-500">Trend Analysis & Market Insights</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <button class="text-gray-500 hover:text-gray-700 mr-3" title="New conversation">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <button class="text-gray-500 hover:text-gray-700" title="Settings">
+                                        <i class="fas fa-cog"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Chat Messages Area -->
+                            <div class="flex-1 p-6 overflow-y-auto">
+                                <!-- AI Welcome Message -->
+                                <div class="flex mb-6">
+                                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3 self-start mt-1">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                    <div class="max-w-3xl">
+                                        <div class="bg-blue-50 rounded-lg p-4 shadow-sm">
+                                            <p class="text-gray-800">Hello Alex! I'm FashionAI, your fashion industry assistant. I can help you with:</p>
+                                            <ul class="list-disc pl-5 mt-2 space-y-1">
+                                                <li>Analyzing market trends and consumer behavior</li>
+                                                <li>Finding popular products by category or demographic</li>
+                                                <li>Suggesting inventory based on seasonal trends</li>
+                                                <li>Predicting emerging fashion movements</li>
+                                                <li>Analyzing your current inventory performance</li>
+                                            </ul>
+                                            <p class="mt-2">What would you like to know about today?</p>
+                                        </div>
+                                        <span class="text-xs text-gray-500 mt-1 inline-block">Today, 9:30 AM</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- User Message -->
+                                <div class="flex justify-end mb-6">
+                                    <div class="max-w-3xl">
+                                        <div class="bg-accent text-white rounded-lg p-4 shadow-sm">
+                                            <p>What are the top trends in sustainable fashion for this season?</p>
+                                        </div>
+                                        <div class="flex justify-end">
+                                            <span class="text-xs text-gray-500 mt-1 inline-block">Today, 9:32 AM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- AI Response -->
+                                <div class="flex mb-6">
+                                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3 self-start mt-1">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                    <div class="max-w-3xl">
+                                        <div class="bg-blue-50 rounded-lg p-4 shadow-sm">
+                                            <p class="text-gray-800 mb-3">Based on current market data, here are the top sustainable fashion trends this season:</p>
+                                            
+                                            <h4 class="font-semibold text-gray-900 mt-2">1. Recycled Materials</h4>
+                                            <p class="text-gray-700">Brands are increasingly using recycled polyester, nylon, and cotton. These materials reduce waste while maintaining quality. Ocean plastic initiatives are particularly trending.</p>
+                                            
+                                            <h4 class="font-semibold text-gray-900 mt-2">2. Low-Impact Dyes</h4>
+                                            <p class="text-gray-700">Natural dyes and digital printing technologies that reduce water usage are gaining popularity, especially in casual wear and accessories.</p>
+                                            
+                                            <h4 class="font-semibold text-gray-900 mt-2">3. Circular Fashion</h4>
+                                            <p class="text-gray-700">Designs that allow for easy disassembly and recycling at the end of a product's life. Several designers now include take-back programs.</p>
+                                            
+                                            <h4 class="font-semibold text-gray-900 mt-2">4. Transparency</h4>
+                                            <p class="text-gray-700">Brands are offering transparency in sourcing and production through QR codes and blockchain verification.</p>
+                                            
+                                            <p class="mt-3 text-gray-800">Would you like recommendations for sustainable designers who match these trends? Or would you prefer to see data on consumer preferences in sustainable fashion?</p>
+                                        </div>
+                                        <span class="text-xs text-gray-500 mt-1 inline-block">Today, 9:33 AM</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Suggestion Chips -->
+                                <div class="flex space-x-2 mb-6 pl-11">
+                                    <button class="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm hover:bg-gray-50">
+                                        Sustainable designers
+                                    </button>
+                                    <button class="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm hover:bg-gray-50">
+                                        Consumer preferences
+                                    </button>
+                                    <button class="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm hover:bg-gray-50">
+                                        Price points
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Chat Input -->
+                            <div class="px-6 py-4 border-t border-gray-200">
+                                <div class="flex">
+                                    <div class="relative flex-1">
+                                        <textarea placeholder="Ask about fashion trends, market insights, or inventory suggestions..." 
+                                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-accent resize-none"
+                                                  rows="2"></textarea>
+                                        <div class="absolute right-3 bottom-3 flex items-center space-x-2">
+                                            <button class="text-gray-500 hover:text-gray-700" title="Attach file">
+                                                <i class="fas fa-paperclip"></i>
+                                            </button>
+                                            <button class="text-gray-500 hover:text-gray-700" title="Add emoji">
+                                                <i class="far fa-smile"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <button class="ml-3 bg-accent text-white px-4 rounded-lg hover:bg-accent/90 self-end h-10 flex items-center" title="Send message">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sidebar - Takes 1/4 of the space on large screens -->
+                    <div class="lg:col-span-1">
+                        <!-- Recent Conversations -->
+                        <div class="bg-white rounded-md shadow-sm p-4 mb-6">
+                            <h3 class="text-lg font-semibold mb-3">Recent Conversations</h3>
+                            <ul class="space-y-2">
+                                <li>
+                                    <a href="#" class="flex items-center p-2 hover:bg-gray-50 rounded text-gray-700">
+                                        <i class="fas fa-comment text-gray-400 mr-3"></i>
+                                        <span>Sustainable Fashion Trends</span>
+                                        <span class="ml-auto text-xs text-gray-500">Today</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center p-2 hover:bg-gray-50 rounded text-gray-700">
+                                        <i class="fas fa-comment text-gray-400 mr-3"></i>
+                                        <span>Summer Inventory Planning</span>
+                                        <span class="ml-auto text-xs text-gray-500">Yesterday</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center p-2 hover:bg-gray-50 rounded text-gray-700">
+                                        <i class="fas fa-comment text-gray-400 mr-3"></i>
+                                        <span>Denim Market Analysis</span>
+                                        <span class="ml-auto text-xs text-gray-500">3 days ago</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="w-full mt-3 text-sm text-accent hover:underline">
+                                View all conversations
+                            </button>
+                        </div>
+                        
+                        <!-- AI Assistant Tools -->
+                        <div class="bg-white rounded-md shadow-sm p-4">
+                            <h3 class="text-lg font-semibold mb-3">AI Tools</h3>
+                            <ul class="space-y-2">
+                                <li>
+                                    <a href="#" class="flex items-center p-2 hover:bg-gray-50 rounded text-gray-700">
+                                        <i class="fas fa-chart-line text-blue-500 mr-3"></i>
+                                        <span>Trend Analyzer</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center p-2 hover:bg-gray-50 rounded text-gray-700">
+                                        <i class="fas fa-boxes-stacked text-green-500 mr-3"></i>
+                                        <span>Inventory Optimizer</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center p-2 hover:bg-gray-50 rounded text-gray-700">
+                                        <i class="fas fa-users text-purple-500 mr-3"></i>
+                                        <span>Customer Insights</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center p-2 hover:bg-gray-50 rounded text-gray-700">
+                                        <i class="fas fa-globe text-amber-500 mr-3"></i>
+                                        <span>Global Market Monitor</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center p-2 hover:bg-gray-50 rounded text-gray-700">
+                                        <i class="fas fa-calendar text-red-500 mr-3"></i>
+                                        <span>Seasonal Planner</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

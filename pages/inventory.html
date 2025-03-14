@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookLab - Inventory Management</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2d3748',
+                        secondary: '#4a5568',
+                        accent: '#f56565',
+                    },
+                    fontFamily: {
+                        sans: ['SF Pro Text', 'sans-serif'],
+                        heading: ['SF Pro Display', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Left Sidebar Navigation -->
+        <div class="w-56 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <a href="../index.html" class="flex items-center px-6 py-3 border-b border-gray-200">
+                <span class="text-xl font-semibold"><span class="text-accent">Look</span>Lab</span>
+            </a>
+            
+            <!-- User Profile Short -->
+            <div class="flex items-center px-6 py-3 border-b border-gray-200">
+                <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                <div class="ml-3">
+                    <div class="text-sm font-medium">Alex Morgan</div>
+                    <div class="text-xs text-gray-500">Boutique Manager</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex-1 py-4">
+                <a href="../index.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-home w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                
+                <!-- Discover with submenu -->
+                <div>
+                    <button class="w-full flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100 focus:outline-none">
+                        <div class="flex items-center">
+                            <i class="fas fa-compass w-5"></i>
+                            <span class="ml-3">Discover</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="pl-14 hidden">
+                        <a href="discover.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Designers
+                        </a>
+                        <a href="products.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Products
+                        </a>
+                        <a href="trending.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Trending
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="inventory.html" class="flex items-center px-6 py-2 text-accent hover:bg-gray-100 font-medium">
+                    <i class="fas fa-boxes-stacked w-5"></i>
+                    <span class="ml-3">Inventory</span>
+                </a>
+                
+                <a href="messages.html" class="flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-comments w-5"></i>
+                        <span class="ml-3">Messages</span>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                </a>
+                
+                <a href="aiassistant.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-robot w-5"></i>
+                    <span class="ml-3">AI Assistant</span>
+                </a>
+                
+                <a href="profile.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-user w-5"></i>
+                    <span class="ml-3">Profile</span>
+                </a>
+                
+                <a href="settings.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100 mt-auto">
+                    <i class="fas fa-cog w-5"></i>
+                    <span class="ml-3">Settings</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <!-- Search Bar -->
+                    <div class="relative w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" placeholder="Search inventory..." 
+                               class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                    </div>
+                    
+                    <!-- Right Side Actions -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-900 relative" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="flex items-center">
+                            <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                            <span class="ml-2">Alex Morgan</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto bg-gray-50 p-6">
+                <h1 class="text-2xl font-bold mb-6">Inventory Management</h1>
+                
+                <!-- Integration Options -->
+                <div class="apple-card p-6 mb-6">
+                    <h2 class="text-lg font-semibold mb-4">Connect Your Store</h2>
+                    <p class="text-gray-600 mb-4">Seamlessly integrate your existing inventory management system with LookLab to keep your data synchronized across platforms.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Shopify Integration -->
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <div class="flex items-center mb-4">
+                                <img src="../assets/images/shopify-logo.png" alt="Shopify" class="w-12 h-12 mr-3">
+                                <div>
+                                    <h3 class="font-medium">Shopify</h3>
+                                    <p class="text-sm text-gray-600">Connect your Shopify store</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">Import your product catalog, sync inventory levels, and manage orders directly.</p>
+                            <button class="connect-inventory-btn bg-[#96bf48] text-white px-4 py-2 rounded-md hover:bg-[#7ba93c] transition-colors w-full" data-platform="shopify" aria-label="Connect Shopify">
+                                <i class="fas fa-plug mr-2"></i> Connect Shopify
+                            </button>
+                        </div>
+                        
+                        <!-- Square Integration -->
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <div class="flex items-center mb-4">
+                                <img src="../assets/images/square-logo.png" alt="Square" class="w-12 h-12 mr-3">
+                                <div>
+                                    <h3 class="font-medium">Square</h3>
+                                    <p class="text-sm text-gray-600">Connect your Square POS</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">Sync your in-store inventory, sales data, and customer information with LookLab.</p>
+                            <button class="connect-inventory-btn bg-[#006aff] text-white px-4 py-2 rounded-md hover:bg-[#0055cc] transition-colors w-full" data-platform="square" aria-label="Connect Square">
+                                <i class="fas fa-plug mr-2"></i> Connect Square
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Inventory Dashboard -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Inventory Overview</h2>
+                        <div class="flex space-x-2">
+                            <div class="relative">
+                                <input type="text" placeholder="Search inventory..." class="pl-8 pr-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
+                                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            </div>
+                            <button class="bg-accent text-white px-4 py-2 rounded-md hover:bg-accent/90 flex items-center" aria-label="Add new product">
+                                <i class="fas fa-plus mr-2"></i> Add Product
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Inventory Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                        <div id="inventory-summary" class="apple-card p-4">
+                            <!-- This will be populated by JS -->
+                            <div class="text-center p-4">
+                                <h2 class="text-3xl font-bold mb-2">428</h2>
+                                <p class="text-gray-600">Total Items in Inventory</p>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4 mt-4">
+                                <div class="text-center">
+                                    <span class="text-xl font-semibold inventory-status-in-stock">312</span>
+                                    <p class="text-sm">In Stock</p>
+                                </div>
+                                <div class="text-center">
+                                    <span class="text-xl font-semibold inventory-status-low">76</span>
+                                    <p class="text-sm">Low Stock</p>
+                                </div>
+                                <div class="text-center">
+                                    <span class="text-xl font-semibold inventory-status-out">40</span>
+                                    <p class="text-sm">Out of Stock</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="apple-card p-4">
+                            <div class="mb-2 text-center">
+                                <h3 class="font-medium">Total Value</h3>
+                                <p class="text-2xl font-bold">$127,485</p>
+                            </div>
+                            <div class="text-xs text-center text-gray-600">
+                                <span class="text-green-500"><i class="fas fa-arrow-up"></i> 8.2%</span> from last month
+                            </div>
+                        </div>
+                        
+                        <div class="apple-card p-4">
+                            <div class="mb-2 text-center">
+                                <h3 class="font-medium">Avg. Turnover</h3>
+                                <p class="text-2xl font-bold">24 days</p>
+                            </div>
+                            <div class="text-xs text-center text-gray-600">
+                                <span class="text-green-500"><i class="fas fa-arrow-down"></i> 2.4 days</span> faster than last month
+                            </div>
+                        </div>
+                        
+                        <div class="apple-card p-4">
+                            <div class="mb-2 text-center">
+                                <h3 class="font-medium">Restock Alerts</h3>
+                                <p class="text-2xl font-bold">18</p>
+                            </div>
+                            <div class="text-xs text-center text-gray-600">
+                                <span class="text-amber-500"><i class="fas fa-exclamation-triangle"></i></span> Items need attention
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Category Breakdown -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                        <!-- Category Distribution -->
+                        <div class="apple-card p-4">
+                            <h3 class="font-medium mb-3">Category Distribution</h3>
+                            <div id="category-breakdown">
+                                <!-- This will be populated by JS -->
+                                <div class="mb-3">
+                                    <div class="flex justify-between mb-1">
+                                        <span class="capitalize">Tops</span>
+                                        <span>142 items (33%)</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 33%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="flex justify-between mb-1">
+                                        <span class="capitalize">Bottoms</span>
+                                        <span>98 items (23%)</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 23%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="flex justify-between mb-1">
+                                        <span class="capitalize">Dresses</span>
+                                        <span>64 items (15%)</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 15%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Best Selling Items -->
+                        <div class="apple-card p-4">
+                            <h3 class="font-medium mb-3">Best Selling Items</h3>
+                            <ul class="divide-y">
+                                <li class="py-2">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-2">1</div>
+                                        <div>
+                                            <p class="font-medium">Organic Cotton Tee</p>
+                                            <p class="text-xs text-gray-600">127 units sold this month</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-2">2</div>
+                                        <div>
+                                            <p class="font-medium">Relaxed Fit Jeans</p>
+                                            <p class="text-xs text-gray-600">98 units sold this month</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-2">3</div>
+                                        <div>
+                                            <p class="font-medium">Linen Blend Blazer</p>
+                                            <p class="text-xs text-gray-600">86 units sold this month</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-2">4</div>
+                                        <div>
+                                            <p class="font-medium">Sustainable Denim Jacket</p>
+                                            <p class="text-xs text-gray-600">72 units sold this month</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Low Stock Alerts -->
+                        <div class="apple-card p-4">
+                            <h3 class="font-medium mb-3">Low Stock Alerts</h3>
+                            <ul class="divide-y">
+                                <li class="py-2">
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <p class="font-medium">Summer Dress (Medium)</p>
+                                            <p class="text-xs text-gray-600">Only 3 units remaining</p>
+                                        </div>
+                                        <button class="text-accent hover:text-accent/80" aria-label="Restock Summer Dress">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <p class="font-medium">Slim Fit Chinos (32)</p>
+                                            <p class="text-xs text-gray-600">Only 4 units remaining</p>
+                                        </div>
+                                        <button class="text-accent hover:text-accent/80" aria-label="Restock Slim Fit Chinos">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <p class="font-medium">Linen Shirt (Small)</p>
+                                            <p class="text-xs text-gray-600">Only 2 units remaining</p>
+                                        </div>
+                                        <button class="text-accent hover:text-accent/80" aria-label="Restock Linen Shirt">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="py-2">
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <p class="font-medium">Eco Sneakers (9)</p>
+                                            <p class="text-xs text-gray-600">Only 5 units remaining</p>
+                                        </div>
+                                        <button class="text-accent hover:text-accent/80" aria-label="Restock Eco Sneakers">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Inventory Table -->
+                    <div class="apple-card overflow-hidden">
+                        <div class="flex justify-between items-center p-4 border-b">
+                            <h3 class="font-medium">Product Inventory</h3>
+                            <div class="flex space-x-2">
+                                <button class="text-gray-600 hover:text-gray-900 px-2 py-1" aria-label="Filter inventory">
+                                    <i class="fas fa-filter mr-1"></i> Filter
+                                </button>
+                                <button class="text-gray-600 hover:text-gray-900 px-2 py-1" aria-label="Export inventory data">
+                                    <i class="fas fa-download mr-1"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Product
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            SKU
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Category
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Stock
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Price
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Status
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="h-10 w-10 flex-shrink-0 bg-gray-100 rounded-md overflow-hidden">
+                                                    <img src="../assets/images/products/tshirt.jpg" alt="T-shirt" class="h-full w-full object-cover">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Organic Cotton T-shirt</div>
+                                                    <div class="text-xs text-gray-500">White / S, M, L, XL</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">TS-OCT-001</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Tops</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">42</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">$24.99</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                In Stock
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <button class="text-accent hover:text-accent/80 mr-3" aria-label="Edit Organic Cotton T-shirt">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-gray-500 hover:text-gray-700" aria-label="More options for Organic Cotton T-shirt">
+                                                <i class="fas fa-ellipsis-vertical"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="h-10 w-10 flex-shrink-0 bg-gray-100 rounded-md overflow-hidden">
+                                                    <img src="../assets/images/products/jeans.jpg" alt="Jeans" class="h-full w-full object-cover">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Relaxed Fit Jeans</div>
+                                                    <div class="text-xs text-gray-500">Blue / 28-36</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">BT-RFJ-002</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Bottoms</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">27</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">$59.99</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                In Stock
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <button class="text-accent hover:text-accent/80 mr-3" aria-label="Edit Relaxed Fit Jeans">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-gray-500 hover:text-gray-700" aria-label="More options for Relaxed Fit Jeans">
+                                                <i class="fas fa-ellipsis-vertical"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="h-10 w-10 flex-shrink-0 bg-gray-100 rounded-md overflow-hidden">
+                                                    <img src="../assets/images/products/dress.jpg" alt="Dress" class="h-full w-full object-cover">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Summer Floral Dress</div>
+                                                    <div class="text-xs text-gray-500">Multi / S, M, L</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">DR-SFD-003</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Dresses</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">3</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">$79.99</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                Low Stock
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <button class="text-accent hover:text-accent/80 mr-3" aria-label="Edit Summer Floral Dress">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-gray-500 hover:text-gray-700" aria-label="More options for Summer Floral Dress">
+                                                <i class="fas fa-ellipsis-vertical"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="h-10 w-10 flex-shrink-0 bg-gray-100 rounded-md overflow-hidden">
+                                                    <img src="../assets/images/products/blazer.jpg" alt="Blazer" class="h-full w-full object-cover">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Linen Blend Blazer</div>
+                                                    <div class="text-xs text-gray-500">Beige / S, M, L, XL</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">OW-LBB-004</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">Outerwear</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">0</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">$129.99</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                Out of Stock
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <button class="text-accent hover:text-accent/80 mr-3" aria-label="Edit Linen Blend Blazer">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-gray-500 hover:text-gray-700" aria-label="More options for Linen Blend Blazer">
+                                                <i class="fas fa-ellipsis-vertical"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="px-4 py-3 flex items-center justify-between border-t">
+                            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-700">
+                                        Showing <span class="font-medium">1</span> to <span class="font-medium">4</span> of <span class="font-medium">428</span> results
+                                    </p>
+                                </div>
+                                <div>
+                                    <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50" aria-label="Previous page">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">1</a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">2</a>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">3</a>
+                                        <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-gray-50 text-sm font-medium text-gray-700">...</span>
+                                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">107</a>
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50" aria-label="Next page">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- Modal Templates -->
+    <div id="inventory-connection-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" style="display: none;">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+            <div class="text-xl font-semibold mb-4">Connecting to Inventory</div>
+            <div class="mb-4">
+                <div class="animate-pulse flex space-x-4 items-center">
+                    <div class="rounded-full bg-slate-200 h-10 w-10 flex items-center justify-center">
+                        <i class="fas fa-sync-alt fa-spin text-gray-500"></i>
+                    </div>
+                    <div class="flex-1 space-y-2">
+                        <div class="h-4 bg-slate-200 rounded"></div>
+                        <div class="h-4 bg-slate-200 rounded w-3/4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="connection-status text-center text-gray-600">Connecting to your inventory system...</div>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

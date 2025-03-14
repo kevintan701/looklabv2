@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookLab - Profile</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2d3748',
+                        secondary: '#4a5568',
+                        accent: '#f56565',
+                    },
+                    fontFamily: {
+                        sans: ['SF Pro Text', 'sans-serif'],
+                        heading: ['SF Pro Display', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Left Sidebar Navigation -->
+        <div class="w-56 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <a href="../index.html" class="flex items-center px-6 py-3 border-b border-gray-200">
+                <span class="text-xl font-semibold"><span class="text-accent">Look</span>Lab</span>
+            </a>
+            
+            <!-- User Profile Short -->
+            <div class="flex items-center px-6 py-3 border-b border-gray-200">
+                <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                <div class="ml-3">
+                    <div class="text-sm font-medium">Alex Morgan</div>
+                    <div class="text-xs text-gray-500">Boutique Manager</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="flex-1 py-4">
+                <a href="../index.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-home w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                
+                <!-- Discover with submenu -->
+                <div>
+                    <button class="w-full flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100 focus:outline-none">
+                        <div class="flex items-center">
+                            <i class="fas fa-compass w-5"></i>
+                            <span class="ml-3">Discover</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="pl-14 hidden">
+                        <a href="discover.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Designers
+                        </a>
+                        <a href="products.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Products
+                        </a>
+                        <a href="trending.html" class="block py-2 text-sm text-gray-600 hover:text-gray-900">
+                            Trending
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="inventory.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-boxes-stacked w-5"></i>
+                    <span class="ml-3">Inventory</span>
+                </a>
+                
+                <a href="messages.html" class="flex items-center justify-between px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-comments w-5"></i>
+                        <span class="ml-3">Messages</span>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                </a>
+                
+                <a href="aiassistant.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-robot w-5"></i>
+                    <span class="ml-3">AI Assistant</span>
+                </a>
+                
+                <a href="profile.html" class="flex items-center px-6 py-2 text-accent hover:bg-gray-100 font-medium">
+                    <i class="fas fa-user w-5"></i>
+                    <span class="ml-3">Profile</span>
+                </a>
+                
+                <a href="settings.html" class="flex items-center px-6 py-2 text-gray-600 hover:bg-gray-100 mt-auto">
+                    <i class="fas fa-cog w-5"></i>
+                    <span class="ml-3">Settings</span>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-3">
+                    <!-- Search Bar -->
+                    <div class="relative w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" placeholder="Search..." 
+                               class="pl-10 pr-4 py-2 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-accent">
+                    </div>
+                    
+                    <!-- Right Side Actions -->
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-600 hover:text-gray-900 relative" title="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="flex items-center">
+                            <img src="../assets/images/user-avatar.jpg" alt="Alex" class="w-8 h-8 rounded-full" />
+                            <span class="ml-2">Alex Morgan</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
+                <div class="container mx-auto p-6">
+                    <h1 class="text-2xl font-bold mb-6">My Profile</h1>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Profile Info Card - Takes 1/3 of the space on large screens -->
+                        <div class="lg:col-span-1">
+                            <div class="apple-card p-0 overflow-hidden">
+                                <!-- Profile Cover -->
+                                <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-32 relative">
+                                    <button class="absolute right-4 bottom-4 bg-white text-gray-600 p-1 rounded-full hover:bg-gray-100" aria-label="Edit cover">
+                                        <i class="fas fa-camera"></i>
+                                    </button>
+                                </div>
+                                
+                                <!-- Profile Avatar -->
+                                <div class="flex justify-center">
+                                    <div class="relative -mt-16">
+                                        <img src="../assets/images/user-avatar.jpg" alt="Alex Morgan" class="w-32 h-32 rounded-full border-4 border-white object-cover">
+                                        <button class="absolute right-1 bottom-1 bg-white text-gray-600 p-1 rounded-full hover:bg-gray-100 shadow-sm" aria-label="Change profile photo">
+                                            <i class="fas fa-camera"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Profile Details -->
+                                <div class="px-6 py-4 text-center">
+                                    <h2 class="text-xl font-bold">Alex Morgan</h2>
+                                    <p class="text-gray-600">Boutique Manager</p>
+                                    <p class="text-sm text-gray-500 mt-1">Urban Style Co.</p>
+                                    
+                                    <div class="flex justify-center mt-4 space-x-3">
+                                        <button class="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center">
+                                            <i class="fas fa-edit mr-2"></i> Edit Profile
+                                        </button>
+                                        <button class="bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 px-4 py-2 rounded-md text-sm font-medium" title="Share Profile" aria-label="Share Profile">
+                                            <i class="fas fa-share-nodes"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Profile Stats -->
+                                <div class="grid grid-cols-3 border-t border-gray-200">
+                                    <div class="text-center py-4 border-r border-gray-200">
+                                        <div class="text-xl font-bold">89</div>
+                                        <div class="text-xs text-gray-500">Connections</div>
+                                    </div>
+                                    <div class="text-center py-4 border-r border-gray-200">
+                                        <div class="text-xl font-bold">428</div>
+                                        <div class="text-xs text-gray-500">Inventory</div>
+                                    </div>
+                                    <div class="text-center py-4">
+                                        <div class="text-xl font-bold">26</div>
+                                        <div class="text-xs text-gray-500">Orders</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Contact Information -->
+                            <div class="apple-card p-4 mt-6">
+                                <h3 class="text-lg font-semibold mb-4">Contact Information</h3>
+                                
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-envelope text-gray-500 w-6"></i>
+                                        <span class="text-gray-800">alex.morgan@urbanstyle.com</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-phone text-gray-500 w-6"></i>
+                                        <span class="text-gray-800">(555) 123-4567</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-map-marker-alt text-gray-500 w-6"></i>
+                                        <span class="text-gray-800">San Francisco, CA</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-globe text-gray-500 w-6"></i>
+                                        <span class="text-gray-800">www.urbanstyleco.com</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4 pt-4 border-t border-gray-200">
+                                    <h4 class="font-medium mb-2">Social Profiles</h4>
+                                    <div class="flex space-x-3">
+                                        <a href="#" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700" aria-label="LinkedIn">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="#" class="bg-pink-600 text-white p-2 rounded-full hover:bg-pink-700" aria-label="Instagram">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="bg-blue-400 text-white p-2 rounded-full hover:bg-blue-500" aria-label="Twitter">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="bg-red-600 text-white p-2 rounded-full hover:bg-red-700" aria-label="Pinterest">
+                                            <i class="fab fa-pinterest"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Main Content - Takes 2/3 of the space on large screens -->
+                        <div class="lg:col-span-2 space-y-6">
+                            <!-- About Section -->
+                            <div class="apple-card p-4">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h3 class="text-lg font-semibold">About</h3>
+                                    <button class="text-gray-500 hover:text-accent" aria-label="Edit about section">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                                
+                                <p class="text-gray-700">
+                                    Boutique manager specializing in sustainable and ethical fashion. With over 8 years of experience in retail management and merchandising, I've built a reputation for curating unique collections that balance trending styles with sustainable practices.
+                                </p>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-medium mb-2">Areas of Interest</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Sustainable Fashion</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Ethical Sourcing</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Small Designers</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Urban Casual</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Eco Materials</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Business Information -->
+                            <div class="apple-card p-4">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h3 class="text-lg font-semibold">Business Information</h3>
+                                    <button class="text-gray-500 hover:text-accent" aria-label="Edit business information">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-medium mb-2">Company Details</h4>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <span class="text-gray-600 w-32">Company Name:</span>
+                                                <span class="text-gray-800">Urban Style Co.</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="text-gray-600 w-32">Business Type:</span>
+                                                <span class="text-gray-800">Boutique Retailer</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="text-gray-600 w-32">Established:</span>
+                                                <span class="text-gray-800">2015</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="text-gray-600 w-32">Location:</span>
+                                                <span class="text-gray-800">254 Market St, San Francisco, CA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-medium mb-2">Store Information</h4>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <span class="text-gray-600 w-32">Store Size:</span>
+                                                <span class="text-gray-800">2,200 sq ft</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="text-gray-600 w-32">Annual Revenue:</span>
+                                                <span class="text-gray-800">$1.2M - $1.5M</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="text-gray-600 w-32">Employees:</span>
+                                                <span class="text-gray-800">8</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="text-gray-600 w-32">Online Store:</span>
+                                                <a href="#" class="text-accent hover:underline">www.urbanstyleco.com</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Connected Platforms -->
+                                <div class="mt-6 pt-4 border-t border-gray-200">
+                                    <h4 class="font-medium mb-3">Connected Platforms</h4>
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex items-center bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                                            <img src="../assets/images/shopify-logo.png" alt="Shopify" class="w-4 h-4 mr-2">
+                                            <span>Shopify Connected</span>
+                                        </div>
+                                        <div class="flex items-center bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
+                                            <img src="../assets/images/square-logo.png" alt="Square" class="w-4 h-4 mr-2">
+                                            <span>Connect Square</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Recent Connections -->
+                            <div class="apple-card p-4">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h3 class="text-lg font-semibold">Recent Connections</h3>
+                                    <a href="#designers" class="text-accent text-sm hover:underline">View All</a>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div class="bg-white p-3 rounded-md shadow-sm flex flex-col items-center text-center">
+                                        <img src="../assets/images/designers/designer-1.jpg" alt="Designer" class="w-16 h-16 rounded-full mb-2">
+                                        <div class="font-medium">Sofia Chen</div>
+                                        <div class="text-xs text-gray-600">Sustainable Luxury</div>
+                                        <div class="text-xs text-gray-500 mt-1">Connected 2 days ago</div>
+                                    </div>
+                                    
+                                    <div class="bg-white p-3 rounded-md shadow-sm flex flex-col items-center text-center">
+                                        <img src="../assets/images/designers/designer-3.jpg" alt="Designer" class="w-16 h-16 rounded-full mb-2">
+                                        <div class="font-medium">Aria Nakamura</div>
+                                        <div class="text-xs text-gray-600">Tech-Integrated Fashion</div>
+                                        <div class="text-xs text-gray-500 mt-1">Connected 1 week ago</div>
+                                    </div>
+                                    
+                                    <div class="bg-white p-3 rounded-md shadow-sm flex flex-col items-center text-center">
+                                        <img src="../assets/images/designers/designer-4.jpg" alt="Designer" class="w-16 h-16 rounded-full mb-2">
+                                        <div class="font-medium">Leo Dubois</div>
+                                        <div class="text-xs text-gray-600">Upcycled Vintage</div>
+                                        <div class="text-xs text-gray-500 mt-1">Connected 2 weeks ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Activity Timeline -->
+                            <div class="apple-card p-4">
+                                <h3 class="text-lg font-semibold mb-4">Recent Activity</h3>
+                                
+                                <div class="relative border-l-2 border-gray-200 ml-4 pl-6 space-y-6">
+                                    <!-- Activity Item 1 -->
+                                    <div class="relative">
+                                        <div class="absolute -left-10 mt-1 bg-accent text-white p-1 rounded-full">
+                                            <i class="fas fa-box-open"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium">Updated Inventory</div>
+                                            <p class="text-sm text-gray-600">Added 42 new items to your inventory</p>
+                                            <p class="text-xs text-gray-500 mt-1">Today, 10:23 AM</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Activity Item 2 -->
+                                    <div class="relative">
+                                        <div class="absolute -left-10 mt-1 bg-green-500 text-white p-1 rounded-full">
+                                            <i class="fas fa-user-plus"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium">New Connection</div>
+                                            <p class="text-sm text-gray-600">Connected with <span class="text-accent">Sofia Chen</span></p>
+                                            <p class="text-xs text-gray-500 mt-1">2 days ago</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Activity Item 3 -->
+                                    <div class="relative">
+                                        <div class="absolute -left-10 mt-1 bg-blue-500 text-white p-1 rounded-full">
+                                            <i class="fas fa-comment-dots"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium">Message Sent</div>
+                                            <p class="text-sm text-gray-600">Sent a message to <span class="text-accent">Marcus Reid</span> about Fall collection</p>
+                                            <p class="text-xs text-gray-500 mt-1">4 days ago</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Activity Item 4 -->
+                                    <div class="relative">
+                                        <div class="absolute -left-10 mt-1 bg-purple-500 text-white p-1 rounded-full">
+                                            <i class="fas fa-store"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium">Connected Shopify</div>
+                                            <p class="text-sm text-gray-600">Integrated your Shopify store with LookLab</p>
+                                            <p class="text-xs text-gray-500 mt-1">1 week ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
