@@ -1,5 +1,7 @@
 # LookLab - Fashion Industry Connection Platform
 
+Demo Available: https://kevintan701.github.io/looklabv2/
+
 LookLab is a web platform designed to connect small and medium-sized fashion industry distributors and designers in the clothing trend sector.
 
 ## Project Overview
